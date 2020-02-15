@@ -33,7 +33,7 @@ function set_image(meta_url) {
 function start_autobahn() {
 
     const connection = new autobahn.Connection({
-        url: 'ws://83.212.124.250:8081/ws',
+        url: 'wss://83.212.124.250:8081/ws',
         realm: 'metadata-realm',
         authid: "anonymous"
     });
