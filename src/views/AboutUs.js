@@ -28,20 +28,27 @@ class AboutUs extends Component {
                         <Container>
                             <Row>
                                 <Col className="ml-auto mr-auto" md="8">
-                                    <h2 className="title">About Us</h2>
-                                    <h5 className="description">
-                                        Η «φωνή» του Πανεπιστημίου Κρήτης (Ρέθυμνο) είναι εδώ! Μια φωνή που εκφράζεται
+                                    <h2 className="title text-left">About Us</h2>
+                                    <h5 className="description text-left">
+                                        Η «φωνή» του Πανεπιστημίου Κρήτης (Ρέθυμνο) είναι εδώ!
+                                        <br/>
+                                        Μια φωνή που εκφράζεται
                                         μουσικά,
                                         προφορικά ή γραπτά για ό,τι την αφορά, για ό,τι την απασχολεί και για ό,τι την
                                         εμπνέει.
-
-                                        ΜατζόΡε είναι ο ραδιοφωνικός σταθμός που πατά σε φοιτητικό έδαφος και κοιτά προς
+                                        <br/>
+                                        <span className='font-weight-bold'>ΜατζόΡε</span> είναι ο ραδιοφωνικός σταθμός
+                                        που πατά σε φοιτητικό έδαφος και κοιτά προς
                                         πάσα
-                                        κατεύθυνση. Οι ευρύτεροι στόχοι: η κριτική, ο πολιτισμός, ο διάλογος, η εξ
+                                        κατεύθυνση.
+                                        <br/>
+                                        Οι ευρύτεροι στόχοι: η κριτική, ο πολιτισμός, ο διάλογος, η εξ
                                         αποστάσεως παρέα με
-                                        τον ακροατή. Η αγάπη για το ράδιο μας φέρνει όλους κοντά και η ανάγκη για
+                                        τον ακροατή.
+                                        <br/>
+                                        Η αγάπη για το ράδιο μας φέρνει όλους κοντά και η ανάγκη για
                                         έκφραση μας ενώνει.
-
+                                        <br/>
                                         Μια έκφραση που για να αξιώνει να λέγεται ελεύθερη, προϋποθέτει τον ολοκληρωτικό
                                         αποκλεισμό κάθε
                                         άποψης που βασίζεται σε διακρίσεις και αναπαράγει τις κοινωνικές ανισότητες.
@@ -78,20 +85,19 @@ class AboutUs extends Component {
                                         <a className="btn2" href="https://facebook.com">
                                             <i className="text-center fa fa-facebook-f"/>
                                         </a>
-
-                                        <a className="btn2" href="#">
+                                        <a className="btn2" href="https://facebook.com">
                                             <i className="fa fa-twitter"/>
                                         </a>
 
-                                        <a className="btn2" href="#">
+                                        <a className="btn2" href="https://facebook.com">
                                             <i className="fa fa-instagram"/>
                                         </a>
 
-                                        <a className="btn2" href="#">
+                                        <a className="btn2" href="https://facebook.com">
                                             <i className="fa fa-google"/>
                                         </a>
 
-                                        <a className="btn2" href="#">
+                                        <a className="btn2" href="https://facebook.com">
                                             <i className="fa fa-youtube"/>
                                         </a>
                                     </div>
