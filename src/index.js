@@ -26,6 +26,11 @@ import "assets/scss/paper-kit.scss";
 import "assets/demo/demo.css";
 import "assets/css/index.css";
 
+import 'tui-editor/dist/tui-editor-contents.css';
+import 'highlight.js/styles/github.css';
+import 'tui-editor/dist/tui-editor.min.css';
+import 'tui-editor/dist/tui-editor-contents.min.css';
+
 // pages
 import Index from "views/Index.js";
 import NucleoIcons from "views/NucleoIcons.js";
@@ -39,19 +44,24 @@ import Producers from "./views/Producers";
 import Schedule from "./views/Schedule";
 import Events from "./views/Events";
 import Articles from "./views/Articles";
+import Producer from "./views/Producer";
+import Show from "./views/Show";
 // others
 
 ReactDOM.render(
     <BrowserRouter>
         <Switch>
             <Route path="/index" render={props => <Index {...props} />}/>
-            <Route path="/shows" render={props => <Shows {...props} />}/>
             <Route path="/chat" render={props => <Chat {...props} />}/>
+            <Route path="/shows" render={props => <Shows {...props} />}/>
+            <Route path="/show/:id" component={Show}/>
             <Route path="/producers" render={props => <Producers {...props} />}/>
+            <Route path="/producer/:id" component={Producer}/>
             <Route path="/schedule" render={props => <Schedule {...props} />}/>
             <Route path="/events" render={props => <Events {...props} />}/>
             <Route path="/articles" render={props => <Articles {...props} />}/>
             <Route path="/about_us" render={props => <AboutUs {...props} />}/>
+
             <Route
                 path="/nucleo-icons"
                 render={props => <NucleoIcons {...props} />}

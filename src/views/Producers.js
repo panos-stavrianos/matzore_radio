@@ -3,29 +3,30 @@ import React, {Component} from "react";
 import IndexNavbar from "./../components/Navbars/IndexNavbar.js";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
 import DemoFooter from "../components/Footers/DemoFooter";
-import {Col, Container, Row} from "reactstrap";
+import ProducersGrid from "../components/ProducersGrid";
 
 class Producers extends Component {
+    state = {
+        members: []
+    };
+
+    componentDidMount() {
+        fetch('https://matzore-shows.herokuapp.com/api/get_members')
+            .then(res => res.json())
+            .then((data) => this.setState({members: data}))
+            .catch(console.log);
+    }
+
     render() {
         return (
             <>
                 <IndexNavbar/>
                 <IndexHeader/>
                 <div className="main">
-                    <div className="section text-center">
-                        <Container>
-                            <Row>
-                                <Col className="ml-auto mr-auto" md="8">
-                                    <h2 className="title">Μουσικοί Παραγωγοί</h2>
-                                    <h5 className="description">
-                                        Δεν υπάρχουν ακόμα μουσικοί παραγωγοί
-                                    </h5>
-                                </Col>
-                            </Row>
-                        </Container>
-                    </div>
+                    <ProducersGrid members={this.state.members}/>
                 </div>
                 <DemoFooter/>
+
             </>
         )
     }
