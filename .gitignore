@@ -21,3 +21,14 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+/.idea/.gitignore
+/Documentation/documentation.html
+/.idea/jsLibraryMappings.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/dictionaries/panos.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/test_paper.iml
+/.idea/vcs.xml
+/.idea/watcherTasks.xml
+/.idea/webResources.xml

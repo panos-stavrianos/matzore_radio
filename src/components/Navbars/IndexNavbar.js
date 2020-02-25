@@ -21,7 +21,6 @@ import React from "react";
 import classnames from "classnames";
 // reactstrap components
 import {
-    Button,
     Collapse,
     NavbarBrand,
     Navbar,
@@ -90,48 +89,32 @@ function IndexNavbar() {
                     isOpen={navbarCollapse}>
                     <Nav navbar>
                         <NavItem>
-                            <NavLink
-                                data-placement="bottom"
-                                href="https://twitter.com/CreativeTim?ref=creativetim"
-                                target="_blank"
-                                title="Follow us on Twitter">
+                            <NavLink href="/">
                                 <p className="">Home</p>
                             </NavLink>
                         </NavItem>
                         <NavDropdown title="Radio" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">ΠΡΟΓΡΑΜΜΑ ΕΚΠΟΜΠΩΝ</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">ΕΚΠΟΜΠΕΣ</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">ΠΑΡΑΓΩΓΟΙ</NavDropdown.Item>
+                            <NavDropdown.Item href="/schedule">ΠΡΟΓΡΑΜΜΑ ΕΚΠΟΜΠΩΝ</NavDropdown.Item>
+                            <NavDropdown.Item href="/shows">ΕΚΠΟΜΠΕΣ</NavDropdown.Item>
+                            <NavDropdown.Item href="/producers">ΠΑΡΑΓΩΓΟΙ</NavDropdown.Item>
                         </NavDropdown>
                         <NavItem>
-                            <NavLink
-                                data-placement="bottom"
-                                href="https://www.instagram.com/CreativeTimOfficial?ref=creativetim"
-                                target="_blank"
-                                title="Follow us on Instagram">
+                            <NavLink href="/chat">
                                 <p className="">CHAT</p>
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink
-                                data-placement="bottom"
-                                href="https://www.github.com/CreativeTimOfficial/paper-kit-react?ref=creativetim"
-                                target="_blank"
-                                title="Star on GitHub">
+                            <NavLink href="/articles">
                                 <p className="">ΑΡΘΡΑ</p>
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink
-                                href="https://demos.creative-tim.com/paper-kit-react/#/documentation?ref=pkr-index-navbar"
-                                target="_blank">
+                            <NavLink href="/events">
                                 <p className="">ΕΚΔΗΛΩΣΕΙΣ</p>
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink
-                                href="https://demos.creative-tim.com/paper-kit-react/#/documentation?ref=pkr-index-navbar"
-                                target="_blank">
+                            <NavLink href="/about_us">
                                 <p className="">ABOUT US</p>
                             </NavLink>
                         </NavItem>

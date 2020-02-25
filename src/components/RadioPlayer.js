@@ -43,9 +43,9 @@ function start_autobahn() {
             console.log("Event:", args[0]);
             let metadata = $.parseJSON(args[0]);
             if (metadata.songTitle && metadata.artist) {
-                $('.title').html(metadata.songTitle);
-                $('.artist').html(metadata.artist);
-                $('.album').html('<a class="album" href=' + metadata.metadata_url + ' target="_blank">' + metadata.albumTitle + '</a>' + '<br/>');
+                $('.radio_title').html(metadata.songTitle);
+                $('.radio_artist').html(metadata.artist);
+                $('.radio_album').html('<a class="album" href=' + metadata.metadata_url + ' target="_blank">' + metadata.albumTitle + '</a>' + '<br/>');
                 set_image(metadata.metadata_url)
             }
         }
@@ -58,9 +58,9 @@ function start_autobahn() {
                         let metadata = $.parseJSON(history[0].args[0]);
                         console.log(metadata);
                         if (metadata.songTitle && metadata.artist) {
-                            $('.title').html(metadata.songTitle);
-                            $('.artist').html(metadata.artist);
-                            $('.album').html('<a class="album" href=' + metadata.metadata_url + ' target="_blank">' + metadata.albumTitle + '</a>' + '<br/>');
+                            $('.radio_title').html(metadata.songTitle);
+                            $('.radio_artist').html(metadata.artist);
+                            $('.radio_album').html('<a class="album" href=' + metadata.metadata_url + ' target="_blank">' + metadata.albumTitle + '</a>' + '<br/>');
                             set_image(metadata.metadata_url)
                         }
                     },
@@ -130,14 +130,13 @@ function RadioPlayer() {
     start_autobahn();
 
     return (
-
         <div className='radio_player z99'>
             <div className={music_card_playing.music_card}>
                 <div id='cover' className='image'/>
-                <div className='info'>
-                    <h2 className='title'/>
-                    <div className='artist'/>
-                    <div className="album"/>
+                <div className='radio_info'>
+                    <h2 className='radio_title'/>
+                    <div className='radio_artist'/>
+                    <div className="radio_album"/>
                 </div>
                 <div className='wave'/>
                 <div className='wave'/>
