@@ -17,7 +17,7 @@ class Chat extends Component {
                         <div className='justify-content-center center m-5'>
                             <div className='card col-lg-10 border-danger'>
                                 <div className='card-body border-danger'>
-                                    <div id="tlkio" data-channel="hey" style={{height: '600px', width: "100%"}}/>
+                                    <div id="tlkio" data-channel="c1bdac" style={{height: '600px', width: "100%"}}/>
                                 </div>
                             </div>
                         </div>
