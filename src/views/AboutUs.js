@@ -3,7 +3,7 @@ import "assets/css/social_bar.css";
 
 import IndexNavbar from "./../components/Navbars/IndexNavbar.js";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
-import {Button, Col, Container, Row, TabPane} from "reactstrap";
+import {Col, Container, Row} from "reactstrap";
 
 
 class AboutUs extends Component {
@@ -60,23 +60,17 @@ class AboutUs extends Component {
                                 <Col className="ml-auto mr-auto" md="8">
                                     <h2 className="title">Βρείτε μας
                                     </h2>
-                                    <h5 className="description">
+                                    <div className="description">
                                         <h6>ΔΙΕΥΘΥΝΣΗ</h6>
-                                        <span>Πανεπιστημιούπολη Ρεθύμνου,
-                                            έναντι γραφείων μέριμνας
-                                        </span>
-                                        <br/>
-                                        <br/>
+                                        <span>Πανεπιστημιούπολη Ρεθύμνου, έναντι γραφείων μέριμνας</span>
+                                        <br/> <br/>
                                         <h6>ΕΠΙΚΟΙΝΩΝΙΑ</h6>
                                         <span className="">studio: &nbsp;</span>
                                         <span className="text-muted subscribe-line">2831077777</span>
                                         <br/>
-                                        <span className="">γραφείο: &nbsp;</span>
-                                        <span className="text-muted subscribe-line">2831028156</span>
-                                        <br/>
                                         <span className="">email: &nbsp;</span>
                                         <span className="text-muted subscribe-line">matzore89.1@outlook.com</span>
-                                    </h5>
+                                    </div>
                                 </Col>
                             </Row>
                             <Row>

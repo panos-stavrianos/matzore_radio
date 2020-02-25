@@ -11,21 +11,17 @@ function DemoFooter() {
                     <Col md="6">
                         <div className='m-3'>
 
-                            <h5 className="description">
+                            <div className="description">
                                 <h6>ΔΙΕΥΘΥΝΣΗ</h6>
                                 <span>Πανεπιστημιούπολη Ρεθύμνου, έναντι γραφείων μέριμνας</span>
-                                <br/>
-                                <br/>
+                                <br/> <br/>
                                 <h6>ΕΠΙΚΟΙΝΩΝΙΑ</h6>
                                 <span className="">studio: &nbsp;</span>
                                 <span className="text-muted subscribe-line">2831077777</span>
                                 <br/>
-                                <span className="">γραφείο: &nbsp;</span>
-                                <span className="text-muted subscribe-line">2831028156</span>
-                                <br/>
                                 <span className="">email: &nbsp;</span>
                                 <span className="text-muted subscribe-line">matzore89.1@outlook.com</span>
-                            </h5>
+                            </div>
                         </div>
 
                     </Col>

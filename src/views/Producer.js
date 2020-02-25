@@ -4,18 +4,9 @@ import IndexNavbar from "./../components/Navbars/IndexNavbar.js";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
 import DemoFooter from "../components/Footers/DemoFooter";
 import {
-    Button,
     Col,
     Container,
-    FormGroup,
-    Input,
-    Label,
-    Nav,
-    NavItem,
-    NavLink,
-    Row,
-    TabContent,
-    TabPane
+    Row
 } from "reactstrap";
 
 
@@ -25,8 +16,8 @@ function ShowsList(shows) {
         return (
             <div>
                 <h3>Εκπομπές</h3>
-                {shows.map(show => (
-                    <h5><a href={'/show/' + show.id}>{show.name}</a></h5>
+                {shows.map((show,i) => (
+                    <h5 key={i}><a href={'/show/' + show.id}>{show.name}</a></h5>
                 ))}
             </div>
         );

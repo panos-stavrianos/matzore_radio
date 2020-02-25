@@ -4,18 +4,9 @@ import IndexNavbar from "./../components/Navbars/IndexNavbar.js";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
 import DemoFooter from "../components/Footers/DemoFooter";
 import {
-    Button,
     Col,
     Container,
-    FormGroup,
-    Input,
-    Label,
-    Nav,
-    NavItem,
-    NavLink,
-    Row,
-    TabContent,
-    TabPane
+    Row
 } from "reactstrap";
 
 
@@ -45,8 +36,8 @@ function ProducersList(producers) {
         return (
             <div>
                 <h3>Μουσικοί παραγωγοί</h3>
-                {producers.map(producer => (
-                    <h5><a href={'/producer/' + producer.id}>{producer.name}</a></h5>
+                {producers.map((producer, i) => (
+                    <h5 key={i}><a href={'/producer/' + producer.id}>{producer.name}</a></h5>
                 ))}
             </div>
         );
@@ -77,7 +68,7 @@ class Show extends Component {
             })
             .then((data) => {
                 console.log(data);
-                data.logo = data.logo ? data.logo : require("assets/img/matzore_logo_192.png")
+                data.logo = data.logo ? data.logo : require("assets/img/matzore_logo_192.png");
                 this.setState({show: data});
             })
             .catch(console.log);
@@ -108,10 +99,7 @@ class Show extends Component {
                         </div>
                         <Row>
                             <Col className="ml-auto mr-auto text-center" md="6">
-                                <p>
-                                    {/*{this.state.show.description}*/}
-                                    <DescriptionMD description={this.state.show.description}/>
-                                </p>
+                                <DescriptionMD description={this.state.show.description}/>
                             </Col>
                         </Row>
 

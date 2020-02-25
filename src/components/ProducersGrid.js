@@ -7,8 +7,8 @@ const ProducersGrid = ({members}) => {
         <div className='m-5 justify-content-center'>
             <div className='m-4'><h1>Εκπομπές</h1></div>
             <Row>
-                {members.map((member) => (
-                    <Col xl="3" md="4" sm="6" xs="12">
+                {members.map((member, i) => (
+                    <Col xl="3" md="4" sm="6" xs="12" key={i}>
                         <div className="card">
                             <a href={'/producer/' + member.id}>
                                 <div className="card-header avatar">

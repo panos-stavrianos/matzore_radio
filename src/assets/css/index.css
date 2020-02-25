@@ -52,3 +52,26 @@ code {
     margin: -85px auto 0;
     display: inline-block;
 }
+
+.description {
+    font-size: 1.35em;
+    line-height: 1.4em;
+}
+
+.dropdown-menu .dropdown-item:hover, .dropdown-menu .dropdown-item:focus {
+    color: #403D39 !important;
+}
+
+.dropdown-menu .dropdown-item {
+    color: #9A9A9A;
+    font-weight: 600;
+
+}
+
+.dropdown-menu .dropdown-item:hover, .dropdown-menu .dropdown-item:focus {
+    color: #403D39 !important;
+}
+
+.dropdown-menu .dropdown-item:hover, .dropdown-menu .dropdown-item:focus {
+     background-color: unset;
+}

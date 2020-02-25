@@ -10,7 +10,7 @@ function set_image(meta_url) {
         $('#cover').css('background-image', 'url(https://images.unsplash.com/photo-1534531173927-aeb928d54385?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)');
         return
     }
-    let image_url = 'https://coverartarchive.org' + meta_url.replace(/^.*\/\/[^\/]+/, '');
+    let image_url = 'https://coverartarchive.org' + meta_url.replace(/^.*\/\/[^/]+/, '');
     $.ajax({
         url: image_url,
         type: 'GET',
@@ -27,7 +27,7 @@ function set_image(meta_url) {
 
             $('#cover').css('background-image', 'url(https://images.unsplash.com/photo-1534531173927-aeb928d54385?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)');
         }
-    });
+    }).then(r => console.log(r));
 }
 
 function start_autobahn() {
@@ -45,7 +45,7 @@ function start_autobahn() {
             if (metadata.songTitle && metadata.artist) {
                 $('.radio_title').html(metadata.songTitle);
                 $('.radio_artist').html(metadata.artist);
-                $('.radio_album').html('<a class="album" href=' + metadata.metadata_url + ' target="_blank">' + metadata.albumTitle + '</a>' + '<br/>');
+                $('.radio_album').html('<a class="album" href=' + metadata.metadata_url + ' target="_blank">' + metadata.albumTitle + '</a> <br/>');
                 set_image(metadata.metadata_url)
             }
         }
@@ -60,7 +60,7 @@ function start_autobahn() {
                         if (metadata.songTitle && metadata.artist) {
                             $('.radio_title').html(metadata.songTitle);
                             $('.radio_artist').html(metadata.artist);
-                            $('.radio_album').html('<a class="album" href=' + metadata.metadata_url + ' target="_blank">' + metadata.albumTitle + '</a>' + '<br/>');
+                            $('.radio_album').html('<a class="album" href=' + metadata.metadata_url + ' target="_blank">' + metadata.albumTitle + '</a> <br/>');
                             set_image(metadata.metadata_url)
                         }
                     },
@@ -134,7 +134,7 @@ function RadioPlayer() {
             <div className={music_card_playing.music_card}>
                 <div id='cover' className='image'/>
                 <div className='radio_info'>
-                    <h2 className='radio_title'/>
+                    <h2 className='radio_title'>&nbsp;</h2>
                     <div className='radio_artist'/>
                     <div className="radio_album"/>
                 </div>
