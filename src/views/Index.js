@@ -23,7 +23,7 @@ import React from "react";
 // core components
 import IndexNavbar from "./../components/Navbars/IndexNavbar.js";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
-import DemoFooter from "./../components/Footers/DemoFooter.js";
+import IndexFooter from "./../components/Footers/IndexFooter.js";
 
 // index sections
 
@@ -53,7 +53,7 @@ function Index() {
       {/*  <SectionLogin />*/}
       {/*  <SectionExamples />*/}
       {/*  <SectionDownload />*/}
-        <DemoFooter />
+        <IndexFooter />
       {/*</div>*/}
     </>
   );

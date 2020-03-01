@@ -2,7 +2,7 @@ import React, {Component} from "react";
 
 import IndexNavbar from "./../components/Navbars/IndexNavbar.js";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
-import DemoFooter from "../components/Footers/DemoFooter";
+import IndexFooter from "../components/Footers/IndexFooter";
 import {Col, Container, Row} from "reactstrap";
 
 class Schedule extends Component {
@@ -25,7 +25,7 @@ class Schedule extends Component {
                         </Container>
                     </div>
                 </div>
-                <DemoFooter/>
+                <IndexFooter/>
             </>
         )
     }

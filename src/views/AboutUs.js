@@ -7,16 +7,6 @@ import {Col, Container, Row} from "reactstrap";
 
 
 class AboutUs extends Component {
-    state = {
-        shows: []
-    };
-
-    componentDidMount() {
-        fetch('https://matzore-shows.herokuapp.com/api/get_shows')
-            .then(res => res.json())
-            .then((data) => this.setState({shows: data}))
-            .catch(console.log);
-    }
 
     render() {
         return (

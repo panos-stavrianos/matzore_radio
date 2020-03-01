@@ -2,32 +2,19 @@ import React, {Component} from "react";
 
 import IndexNavbar from "./../components/Navbars/IndexNavbar.js";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
-import DemoFooter from "../components/Footers/DemoFooter";
-import {
-    Col,
-    Container,
-    Row
-} from "reactstrap";
-
-
+import IndexFooter from "../components/Footers/IndexFooter";
+import {Col, Container, Row} from "reactstrap";
 import {Viewer} from '@toast-ui/react-editor'
 
 
-/**
- * @return {string}
- */
 function DescriptionMD(description) {
     description = description.description;
-
-    console.log(description);
     return (
         <Viewer
             initialValue={description}
             previewStyle="vertical"
             initialEditType="markdown"
         />)
-
-
 }
 
 function ProducersList(producers) {
@@ -74,7 +61,6 @@ class Show extends Component {
             .catch(console.log);
     }
 
-
     render() {
         return (
             <>
@@ -102,23 +88,18 @@ class Show extends Component {
                                 <DescriptionMD description={this.state.show.description}/>
                             </Col>
                         </Row>
-
                         <Row>
-
                             <Col className="ml-auto mr-auto text-center">
                                 <ProducersList producers={this.state.show.members}/>
                             </Col>
                         </Row>
-
-
                         <br/>
                     </Container>
                 </div>
-                <DemoFooter/>
+                <IndexFooter/>
             </>
         )
     }
-
 }
 
 export default Show;

@@ -3,7 +3,7 @@ import React, {Component} from "react";
 import IndexNavbar from "./../components/Navbars/IndexNavbar.js";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
 import MediaQuery from 'react-responsive';
-import DemoFooter from "../components/Footers/DemoFooter";
+import IndexFooter from "../components/Footers/IndexFooter";
 
 class Chat extends Component {
 
@@ -28,7 +28,7 @@ class Chat extends Component {
                         </div>
                     </MediaQuery>
                 </div>
-                <DemoFooter/>
+                <IndexFooter/>
             </>
         )
     }

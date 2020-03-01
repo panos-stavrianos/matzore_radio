@@ -2,7 +2,7 @@ import React, {Component} from "react";
 
 import IndexNavbar from "./../components/Navbars/IndexNavbar.js";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
-import DemoFooter from "../components/Footers/DemoFooter";
+import IndexFooter from "../components/Footers/IndexFooter";
 import {
     Col,
     Container,
@@ -91,7 +91,7 @@ class Producer extends Component {
                         <br/>
                     </Container>
                 </div>
-                <DemoFooter/>
+                <IndexFooter/>
             </>
         )
     }

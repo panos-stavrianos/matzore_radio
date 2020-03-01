@@ -4,10 +4,13 @@ import {soundManager} from "soundmanager2"
 import autobahn from "autobahn"
 import "./../assets/css/radio_player.css"
 
+const default_cover = 'https://images.unsplash.com/photo-1534531173927-aeb928d54385?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
+const isObjectEmpty = obj => Object.values(obj).every(val => typeof val === "undefined")
+
 
 function set_image(meta_url) {
     if (meta_url === "") {
-        $('#cover').css('background-image', 'url(https://images.unsplash.com/photo-1534531173927-aeb928d54385?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)');
+        $('#cover').css('background-image', `url(${default_cover})`);
         return
     }
     let image_url = 'https://coverartarchive.org' + meta_url.replace(/^.*\/\/[^/]+/, '');
@@ -15,22 +18,53 @@ function set_image(meta_url) {
         url: image_url,
         type: 'GET',
         success: function (data) {
-            console.log(data.images);
             if (data.images.length > 0) {
-                console.log(data.images[0].image);
                 $('#cover').css('background-image', 'url(' + data.images[0].image + ')');
             } else
-                $('#cover').css('background-image', 'url(https://images.unsplash.com/photo-1534531173927-aeb928d54385?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)');
+                $('#cover').css('background-image', `url(${default_cover})`);
         },
         error: function (data) {
             console.log("no cover");
 
-            $('#cover').css('background-image', 'url(https://images.unsplash.com/photo-1534531173927-aeb928d54385?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)');
+            $('#cover').css('background-image', `url(${default_cover})`);
         }
-    }).then(r => console.log(r));
+    });
 }
 
 function start_autobahn() {
+
+    function set_meta_autopilot(data) {
+        let metadata = $.parseJSON(data);
+        if (metadata.songTitle && metadata.artist) {
+            $('.radio_title').html(metadata.songTitle);
+            $('.radio_artist').html(metadata.artist);
+            $('.radio_album').html(`<a class="album" href=${metadata.metadata_url}>${metadata.albumTitle}</a> <br/>`);
+            set_image(metadata.metadata_url)
+        }
+    }
+
+    function set_meta_show(data) {
+        $('.radio_title').html("Show on air");
+        $('.radio_artist').html(data.message);
+        $('.radio_album').html(`<a class="album" href=/show/${data.show_id} target="_blank">${data.name}</a> <br/>`);
+        if (data.cover)
+            $('#cover').css('background-image', `url(${data.cover})`);
+        else
+            $('#cover').css('background-image', `url(${default_cover})`);
+
+    }
+
+    function set_meta(data_autopilot) {
+        $.getJSON('https://matzore-shows.herokuapp.com/api/get_show_playing', (data_show) => {
+            if (data_show && !isObjectEmpty(data_show))
+                set_meta_show(data_show);
+            else
+                set_meta_autopilot(data_autopilot)
+        }).fail(() => {
+            set_meta_autopilot(data_autopilot)
+        });
+
+    }
 
     const connection = new autobahn.Connection({
         url: window.location.protocol === "http:" ? 'ws://83.212.124.250:8081/ws' : 'wss://83.212.124.250:8081/ws',
@@ -40,29 +74,14 @@ function start_autobahn() {
     connection.onopen = function (session) {
         // 1) subscribe to a topic
         function onevent(args) {
-            console.log("Event:", args[0]);
-            let metadata = $.parseJSON(args[0]);
-            if (metadata.songTitle && metadata.artist) {
-                $('.radio_title').html(metadata.songTitle);
-                $('.radio_artist').html(metadata.artist);
-                $('.radio_album').html('<a class="album" href=' + metadata.metadata_url + ' target="_blank">' + metadata.albumTitle + '</a> <br/>');
-                set_image(metadata.metadata_url)
-            }
+            set_meta(args[0]);
         }
 
         session.subscribe('com.metadata.client.metadata_event', onevent).then(
             function (sub) {
-                console.log("subscribed with subscription ID " + sub.id);
                 session.call('wamp.subscription.get_events', [sub.id, 1]).then(
                     function (history) {
-                        let metadata = $.parseJSON(history[0].args[0]);
-                        console.log(metadata);
-                        if (metadata.songTitle && metadata.artist) {
-                            $('.radio_title').html(metadata.songTitle);
-                            $('.radio_artist').html(metadata.artist);
-                            $('.radio_album').html('<a class="album" href=' + metadata.metadata_url + ' target="_blank">' + metadata.albumTitle + '</a> <br/>');
-                            set_image(metadata.metadata_url)
-                        }
+                        set_meta(history[0].args[0]);
                     },
                     function (err) {
                         console.log("could not retrieve event history", err);

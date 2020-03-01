@@ -2,8 +2,8 @@ import React, {Component} from "react";
 
 import IndexNavbar from "./../components/Navbars/IndexNavbar.js";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
-import DemoFooter from "../components/Footers/DemoFooter";
-import ProducersGrid from "../components/ProducersGrid";
+import IndexFooter from "../components/Footers/IndexFooter";
+import ProducersGrid from "../components/Grids/ProducersGrid";
 
 class Producers extends Component {
     state = {
@@ -25,7 +25,7 @@ class Producers extends Component {
                 <div className="main">
                     <ProducersGrid members={this.state.members}/>
                 </div>
-                <DemoFooter/>
+                <IndexFooter/>
 
             </>
         )

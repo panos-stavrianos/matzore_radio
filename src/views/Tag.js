@@ -2,18 +2,23 @@ import React, {Component} from "react";
 
 import IndexNavbar from "./../components/Navbars/IndexNavbar.js";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
-import EventsGrid from "components/Grids/EventsGrid";
 import IndexFooter from "../components/Footers/IndexFooter";
+import ArticlesGrid from "../components/Grids/ArticlesGrid";
+import EventsGrid from "../components/Grids/EventsGrid";
 
-class Events extends Component {
+class Tag extends Component {
     state = {
-        events: []
+        articles: []
     };
 
     componentDidMount() {
-        fetch('https://matzore-shows.herokuapp.com/api/get_events')
+        const {match: {params}} = this.props;
+        console.log(params.id);
+        fetch('https://matzore-shows.herokuapp.com/api/get_tag/' + params.id)
             .then(res => res.json())
-            .then((data) => this.setState({events: data}))
+            .then((data) => {
+                this.setState(data);
+            })
             .catch(console.log);
     }
 
@@ -23,6 +28,7 @@ class Events extends Component {
                 <IndexNavbar/>
                 <IndexHeader/>
                 <div className="main">
+                    <ArticlesGrid articles={this.state.articles}/>
                     <EventsGrid events={this.state.events}/>
                 </div>
                 <IndexFooter/>
@@ -32,4 +38,4 @@ class Events extends Component {
     }
 }
 
-export default Events;
+export default Tag;

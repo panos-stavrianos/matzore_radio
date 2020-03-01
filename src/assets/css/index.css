@@ -73,5 +73,15 @@ code {
 }
 
 .dropdown-menu .dropdown-item:hover, .dropdown-menu .dropdown-item:focus {
-     background-color: unset;
+    background-color: unset;
 }
+
+.profile-content {
+    padding-top: 0;
+    position: relative;
+    z-index: 2;
+}
+@media (max-height: 850px){
+    .presentation-subtitle {
+        margin-bottom: 100px;
+    }}

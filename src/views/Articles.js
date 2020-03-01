@@ -2,30 +2,31 @@ import React, {Component} from "react";
 
 import IndexNavbar from "./../components/Navbars/IndexNavbar.js";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
-import DemoFooter from "../components/Footers/DemoFooter";
-import {Col, Container, Row} from "reactstrap";
+import ArticlesGrid from "components/Grids/ArticlesGrid";
+import IndexFooter from "../components/Footers/IndexFooter";
 
 class Articles extends Component {
+    state = {
+        articles: []
+    };
+
+    componentDidMount() {
+        fetch('https://matzore-shows.herokuapp.com/api/get_articles')
+            .then(res => res.json())
+            .then((data) => this.setState({articles: data}))
+            .catch(console.log);
+    }
+
     render() {
         return (
             <>
                 <IndexNavbar/>
                 <IndexHeader/>
                 <div className="main">
-                    <div className="section text-center">
-                        <Container>
-                            <Row>
-                                <Col className="ml-auto mr-auto" md="8">
-                                    <h2 className="title">Άρθρα</h2>
-                                    <h5 className="description">
-                                        Δεν υπάρχουν ακόμα άρθρα
-                                    </h5>
-                                </Col>
-                            </Row>
-                        </Container>
-                    </div>
+                    <ArticlesGrid articles={this.state.articles}/>
                 </div>
-                <DemoFooter/>
+                <IndexFooter />
+
             </>
         )
     }

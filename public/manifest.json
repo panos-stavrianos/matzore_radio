@@ -3,12 +3,12 @@
   "name": "Ματζόρε FM 89.1",
   "icons": [
     {
-      "src": "logo192.png",
+      "src": "matzore_logo_192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "matzore_logo_512.png",
       "type": "image/png",
       "sizes": "512x512"
     }

@@ -18,34 +18,30 @@
 */
 import React from "react";
 import ReactDOM from "react-dom";
-import {BrowserRouter, Route, Redirect, Switch} from "react-router-dom";
-
+import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
 // styles
 import "assets/css/bootstrap.min.css";
 import "assets/scss/paper-kit.scss";
-import "assets/demo/demo.css";
 import "assets/css/index.css";
 
 import 'tui-editor/dist/tui-editor-contents.css';
 import 'highlight.js/styles/github.css';
 import 'tui-editor/dist/tui-editor.min.css';
 import 'tui-editor/dist/tui-editor-contents.min.css';
-
 // pages
 import Index from "views/Index.js";
-import NucleoIcons from "views/NucleoIcons.js";
-import LandingPage from "views/examples/LandingPage.js";
-import ProfilePage from "views/examples/ProfilePage.js";
-import RegisterPage from "views/examples/RegisterPage.js";
 import Shows from "./views/Shows";
 import Chat from "./views/Chat";
 import AboutUs from "./views/AboutUs";
 import Producers from "./views/Producers";
 import Schedule from "./views/Schedule";
 import Events from "./views/Events";
+import Event from "./views/Event";
 import Articles from "./views/Articles";
+import Article from "./views/Article";
 import Producer from "./views/Producer";
 import Show from "./views/Show";
+import Tag from "./views/Tag";
 // others
 
 ReactDOM.render(
@@ -53,31 +49,20 @@ ReactDOM.render(
         <Switch>
             <Route path="/index" render={props => <Index {...props} />}/>
             <Route path="/chat" render={props => <Chat {...props} />}/>
+            <Route path="/about_us" render={props => <AboutUs {...props} />}/>
+            <Route path="/schedule" render={props => <Schedule {...props} />}/>
+
             <Route path="/shows" render={props => <Shows {...props} />}/>
             <Route path="/show/:id" component={Show}/>
             <Route path="/producers" render={props => <Producers {...props} />}/>
             <Route path="/producer/:id" component={Producer}/>
-            <Route path="/schedule" render={props => <Schedule {...props} />}/>
+            <Route path="/author/:id" component={Producer}/>
             <Route path="/events" render={props => <Events {...props} />}/>
+            <Route path="/event/:id" component={Event}/>
             <Route path="/articles" render={props => <Articles {...props} />}/>
-            <Route path="/about_us" render={props => <AboutUs {...props} />}/>
+            <Route path="/article/:id" component={Article}/>
+            <Route path="/tag/:id" component={Tag}/>
 
-            <Route
-                path="/nucleo-icons"
-                render={props => <NucleoIcons {...props} />}
-            />
-            <Route
-                path="/landing-page"
-                render={props => <LandingPage {...props} />}
-            />
-            <Route
-                path="/profile-page"
-                render={props => <ProfilePage {...props} />}
-            />
-            <Route
-                path="/register-page"
-                render={props => <RegisterPage {...props} />}
-            />
             <Redirect to="/index"/>
         </Switch>
     </BrowserRouter>,
