@@ -1669,7 +1669,6 @@ textarea.form-control {
   color: #FFFFFF;
   font-weight: 500;
   font-size: 0.75em;
-  text-transform: uppercase;
   display: inline-block;
   margin-bottom: 3px;
   padding-top: 5px; }
@@ -6396,7 +6395,7 @@ td.rdtYear:hover {
   .index .presentation-subtitle {
     margin-bottom: 100px; }
   .index .category.category-absolute {
-    margin-top: 20px; } }
+    margin-top: 200px; } }
 
 @media screen and (max-width: 374px) {
   .index .presentation-subtitle {
@@ -6456,5 +6455,3 @@ td.rdtYear:hover {
   top: 1px;
   border-width: 0 .4rem .4rem .4rem;
   border-bottom-color: #fff; }
-
-/*# sourceMappingURL=paper-kit.css.map */

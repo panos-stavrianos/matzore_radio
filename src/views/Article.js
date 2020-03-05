@@ -17,17 +17,22 @@ function DescriptionMD(description) {
         />)
 }
 
-function TagsList(tags) {
+function TagsList(tags, category) {
     tags = tags.tags;
+    category = category.category;
     if (tags.length > 0) {
         return (
-            <div><h5>
+            <div><h4>
+                <span className="badge badge-default m-1">
+                    <a className='text-light' style={{fontWeight: 'bold'}}
+                       href={'/category/' + category.id}>{category.name}</a>
+                </span>
                 {tags.map((tag, i) => (
-                    <span key={i} className="badge badge-primary text-lowercase m-1">
+                    <span key={i} className="badge badge-primary m-1">
                         <a className='text-light' href={'/tag/' + tag.id} title="Δείτε περισσότερα">{tag.name}</a>
                     </span>
                 ))}
-            </h5></div>
+            </h4></div>
         );
     } else
         return (<br/>)
@@ -96,23 +101,28 @@ class Article extends Component {
                                 <h4 className="title m-0">
                                     {this.state.article.title} <br/>
                                 </h4>
-                                <Col className="ml-auto mr-auto text-center">
-                                    <TagsList tags={this.state.article.tags}/>
-                                </Col>
-                                <p>
-                                    {this.state.article.authors.length > 1 ? 'Authors: ' : 'Author: '}
-                                    <span>
+                                <Row>
+                                    <Col className="ml-auto mr-auto text-left" md={6}>
+                                        <TagsList tags={this.state.article.tags}
+                                                  category={this.state.article.category}/>
+                                    </Col>
+                                    <Col className="ml-auto mr-auto text-right" md={6}>
+
+                                        <h5>
+                                            {this.state.article.authors.length > 1 ? 'Authors: ' : 'Author: '}
+                                            <span>
                                 <AuthorsList authors={this.state.article.authors}/>
                                     </span>
-                                </p>
-                                <p>
-                                    Δημοσιεύτηκε:&nbsp;
-                                    <span>
+                                        </h5>
+                                        <p>
+                                            Δημοσιεύτηκε:&nbsp;
+                                            <span>
                                 <Moment format="DD/MM/YYYY"
                                         style={{fontWeight: 'bold'}}>{this.state.article.created_at}</Moment>
                                     </span>
-                                </p>
-
+                                        </p>
+                                    </Col>
+                                </Row>
                             </div>
                         </div>
                         <Row>

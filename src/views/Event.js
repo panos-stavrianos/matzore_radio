@@ -129,7 +129,7 @@ class Event extends Component {
                                 </Col>
                                 <h5>
                                     Τοποθεσία:<span className='m-1'
-                                                     style={{fontWeight: 'bold'}}>{this.state.event.location}</span>
+                                                    style={{fontWeight: 'bold'}}>{this.state.event.location}</span>
                                     <br/>
                                     Ημ/Ώρα:
                                     <span>

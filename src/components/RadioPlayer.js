@@ -74,6 +74,8 @@ function start_autobahn() {
     connection.onopen = function (session) {
         // 1) subscribe to a topic
         function onevent(args) {
+            console.log('onevent');
+            console.log(args);
             set_meta(args[0]);
         }
 
@@ -81,6 +83,9 @@ function start_autobahn() {
             function (sub) {
                 session.call('wamp.subscription.get_events', [sub.id, 1]).then(
                     function (history) {
+                        console.log('history');
+                        console.log(history);
+
                         set_meta(history[0].args[0]);
                     },
                     function (err) {

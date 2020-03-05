@@ -1,7 +1,6 @@
 import React from "react";
-
 // reactstrap components
-import {Row, Container, Col} from "reactstrap";
+import {Col, Container, Row} from "reactstrap";
 
 function IndexFooter() {
     return (
@@ -37,24 +36,21 @@ function IndexFooter() {
                             </div>
                             <div className="center">
                                 <div className="middle">
-                                    <a className="btn2" href="https://facebook.com">
+                                    <a className="btn2" href="https://www.facebook.com/matzorefm89.1/">
                                         <i className="fa fa-facebook-f"/>
                                     </a>
-                                    <a className="btn2" href="https://facebook.com">
-                                        <i className="fa fa-twitter"/>
-                                    </a>
-
-                                    <a className="btn2" href="https://facebook.com">
+                                    <a className="btn2" href="https://www.instagram.com/89.1matzore/">
                                         <i className="fa fa-instagram"/>
                                     </a>
-
-                                    <a className="btn2" href="https://facebook.com">
-                                        <i className="fa fa-google"/>
-                                    </a>
-
-                                    <a className="btn2" href="https://facebook.com">
-                                        <i className="fa fa-youtube"/>
-                                    </a>
+                                    {/*<a className="btn2" href="https://facebook.com">*/}
+                                    {/*    <i className="fa fa-twitter"/>*/}
+                                    {/*</a>*/}
+                                    {/*<a className="btn2" href="https://facebook.com">*/}
+                                    {/*    <i className="fa fa-google"/>*/}
+                                    {/*</a>*/}
+                                    {/*<a className="btn2" href="https://facebook.com">*/}
+                                    {/*    <i className="fa fa-youtube"/>*/}
+                                    {/*</a>*/}
                                 </div>
                             </div>
                         </div>

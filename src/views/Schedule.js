@@ -3,29 +3,41 @@ import React, {Component} from "react";
 import IndexNavbar from "./../components/Navbars/IndexNavbar.js";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
 import IndexFooter from "../components/Footers/IndexFooter";
-import {Col, Container, Row} from "reactstrap";
+import {Tab, Tabs} from "react-bootstrap";
+import ScheduleTimeline from "../components/Grids/ScheduleTimeline";
+import {Container} from "reactstrap";
 
 class Schedule extends Component {
+    state = {
+        schedule: {},
+        days: {}
+    };
+
+    componentDidMount() {
+        fetch('https://matzore-shows.herokuapp.com/api/get_schedule')
+            .then(res => res.json())
+            .then((data) => this.setState({schedule: data.schedule, days: data.days}))
+            .catch(console.log);
+    }
+
     render() {
         return (
             <>
                 <IndexNavbar/>
                 <IndexHeader/>
                 <div className="main">
-                    <div className="section text-center">
-                        <Container>
-                            <Row>
-                                <Col className="ml-auto mr-auto" md="8">
-                                    <h2 className="title">Πρόγραμμα εκπομπών</h2>
-                                    <h5 className="description">
-                                        Δεν υπάρχει πρόγραμμα εκπομπών
-                                    </h5>
-                                </Col>
-                            </Row>
-                        </Container>
-                    </div>
+                    <Container>
+                    <Tabs fill defaultActiveKey="Monday" id="uncontrolled-tab-example">
+                            {Object.keys(this.state.days).map((day, i) => (
+                                <Tab eventKey={this.state.days[day][0]} title={this.state.days[day][1]} key={i}>
+                                    <ScheduleTimeline records={this.state.schedule[day]} day={day}/>
+                                </Tab>
+                            ))}
+                    </Tabs>
+                    </Container>
                 </div>
                 <IndexFooter/>
+
             </>
         )
     }
