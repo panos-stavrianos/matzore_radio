@@ -10,8 +10,7 @@ import {
 } from "reactstrap";
 
 
-function ShowsList(shows) {
-    shows = shows.shows;
+function ShowsList({shows}) {
     if (shows.length > 0) {
         return (
             <div>

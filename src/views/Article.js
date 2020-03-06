@@ -7,8 +7,7 @@ import {Col, Container, Row} from "reactstrap";
 import {Viewer} from '@toast-ui/react-editor'
 import Moment from "react-moment";
 
-function DescriptionMD(description) {
-    description = description.description;
+function DescriptionMD({description}) {
     return (
         <Viewer
             initialValue={description}
@@ -17,9 +16,7 @@ function DescriptionMD(description) {
         />)
 }
 
-function TagsList(tags, category) {
-    tags = tags.tags;
-    category = category.category;
+function TagsList({tags, category}) {
     if (tags.length > 0) {
         return (
             <div><h4>
@@ -38,8 +35,7 @@ function TagsList(tags, category) {
         return (<br/>)
 }
 
-function AuthorsList(authors) {
-    authors = authors.authors;
+function AuthorsList({authors}) {
     if (authors.length > 0) {
         return (
             <>
@@ -107,7 +103,6 @@ class Article extends Component {
                                                   category={this.state.article.category}/>
                                     </Col>
                                     <Col className="ml-auto mr-auto text-right" md={6}>
-
                                         <h5>
                                             {this.state.article.authors.length > 1 ? 'Authors: ' : 'Author: '}
                                             <span>

@@ -26,7 +26,6 @@ class Producers extends Component {
                     <ProducersGrid members={this.state.members}/>
                 </div>
                 <IndexFooter/>
-
             </>
         )
     }

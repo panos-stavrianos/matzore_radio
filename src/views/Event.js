@@ -18,8 +18,7 @@ const renderMarkers = (map, maps, lat, lng) => {
 };
 
 
-function DescriptionMD(description) {
-    description = description.description;
+function DescriptionMD({description}) {
     return (
         <Viewer
             initialValue={description}
@@ -28,16 +27,13 @@ function DescriptionMD(description) {
         />)
 }
 
-function GMapReact(center) {
+function GMapReact({center}) {
     let defaultProps = {
         center: {lat: 35.3641978, lng: 24.4777767},
         zoom: 15,
     };
 
-    center = center.center;
-
     return (
-
         <div style={{height: '35vh', width: '100%'}}>
             <GoogleMapReact
                 bootstrapURLKeys={{key: 'AIzaSyBWGv5gzLoXbCnknnoa0V0MOMfBwcUtpik'}}
@@ -45,18 +41,14 @@ function GMapReact(center) {
                 defaultZoom={defaultProps.zoom}
                 center={center}
                 yesIWantToUseGoogleMapApiInternals
-                onGoogleApiLoaded={({map, maps}) => renderMarkers(map, maps, center.lat, center.lng)}
-            >
+                onGoogleApiLoaded={({map, maps}) => renderMarkers(map, maps, center.lat, center.lng)}>
             </GoogleMapReact>
         </div>
-
-
     )
 }
 
 
-function TagsList(tags) {
-    tags = tags.tags;
+function TagsList({tags}) {
     if (tags.length > 0) {
         return (
             <div><h5>

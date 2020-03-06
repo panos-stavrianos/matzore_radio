@@ -7,8 +7,7 @@ import {Col, Container, Row} from "reactstrap";
 import {Viewer} from '@toast-ui/react-editor'
 
 
-function DescriptionMD(description) {
-    description = description.description;
+function DescriptionMD({description}) {
     return (
         <Viewer
             initialValue={description}
@@ -17,8 +16,7 @@ function DescriptionMD(description) {
         />)
 }
 
-function ProducersList(producers) {
-    producers = producers.producers;
+function ProducersList({producers}) {
     if (producers.length > 0) {
         return (
             <div>
