@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import IndexNavbar from "./../components/Navbars/IndexNavbar.js";
+import IndexNavbar from "../components/Navbars/IndexNavbar";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
 import IndexFooter from "../components/Footers/IndexFooter";
 import {Col, Container, Row} from "reactstrap";
@@ -71,9 +71,8 @@ class Show extends Component {
                 return res.json();
             })
             .then((data) => {
-                console.log(data);
-                data.logo = data.logo ? data.logo : require("assets/img/matzore_logo_192.png");
-                this.setState({show: data});
+                data.show.logo = data.show.logo ? data.show.logo : require("assets/img/matzore_logo_192.png");
+                this.setState(data);
             })
             .catch(console.log);
     }

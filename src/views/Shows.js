@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-import IndexNavbar from "./../components/Navbars/IndexNavbar.js";
+import IndexNavbar from "../components/Navbars/IndexNavbar";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
 import ShowsGrid from "components/Grids/ShowsGrid";
 import IndexFooter from "../components/Footers/IndexFooter";
@@ -13,7 +13,7 @@ class Shows extends Component {
     componentDidMount() {
         fetch('https://matzore-shows.herokuapp.com/api/get_shows')
             .then(res => res.json())
-            .then((data) => this.setState({shows: data}))
+            .then((data) => this.setState(data))
             .catch(console.log);
     }
 
@@ -25,7 +25,7 @@ class Shows extends Component {
                 <div className="main">
                     <ShowsGrid shows={this.state.shows}/>
                 </div>
-                <IndexFooter />
+                <IndexFooter/>
 
             </>
         )

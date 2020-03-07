@@ -16,22 +16,15 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
+import React, {Component} from "react";
 // nodejs library that concatenates strings
 import classnames from "classnames";
 // reactstrap components
-import {
-    Collapse,
-    NavbarBrand,
-    Navbar,
-    NavItem,
-    NavLink,
-    Nav,
-    Container
-} from "reactstrap";
+import {Collapse, Container, Nav, Navbar, NavbarBrand, NavItem, NavLink} from "reactstrap";
 import {NavDropdown} from 'react-bootstrap';
 
-function IndexNavbar() {
+function TheNavbar({categories}) {
+
     const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
     const [navbarCollapse, setNavbarCollapse] = React.useState(false);
 
@@ -61,6 +54,8 @@ function IndexNavbar() {
             window.removeEventListener("scroll", updateNavbarColor);
         };
     });
+    if (!categories && !categories.length)
+        return (<>Test</>);
     return (
         <Navbar className={classnames("fixed-top", navbarColor)} expand="lg">
             <Container>
@@ -103,11 +98,14 @@ function IndexNavbar() {
                                 <p className="">CHAT</p>
                             </NavLink>
                         </NavItem>
-                        <NavItem>
-                            <NavLink href="/articles">
-                                <p className="">ΑΡΘΡΑ</p>
-                            </NavLink>
-                        </NavItem>
+                        <NavDropdown title="ΑΡΘΡΑ" id="basic-nav-dropdown">
+                            <NavDropdown.Item
+                                href='/articles'>Όλα τα άρθρα</NavDropdown.Item>
+                            {categories.map((category, i) => (
+                                <NavDropdown.Item key={i}
+                                                  href={'/category/' + category.id}>{category.name}</NavDropdown.Item>
+                            ))}
+                        </NavDropdown>
                         <NavItem>
                             <NavLink href="/events">
                                 <p className="">ΕΚΔΗΛΩΣΕΙΣ</p>
@@ -124,5 +122,29 @@ function IndexNavbar() {
         </Navbar>
     );
 }
+
+class IndexNavbar extends Component {
+    state = {
+        categories: [{'id': 0, 'name': ""}],
+    };
+
+    componentDidMount() {
+        fetch('https://matzore-shows.herokuapp.com/api/get_categories')
+            .then(res => {
+                return res.json();
+            })
+            .then((data) => {
+                this.setState(data);
+            })
+            .catch(console.log);
+    }
+
+    render() {
+        return (
+            <TheNavbar categories={this.state.categories}/>
+        )
+    }
+}
+
 
 export default IndexNavbar;

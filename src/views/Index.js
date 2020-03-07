@@ -21,7 +21,7 @@ import React from "react";
 // reactstrap components
 
 // core components
-import IndexNavbar from "./../components/Navbars/IndexNavbar.js";
+import IndexNavbar from "../components/Navbars/IndexNavbar";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
 import IndexFooter from "./../components/Footers/IndexFooter.js";
 

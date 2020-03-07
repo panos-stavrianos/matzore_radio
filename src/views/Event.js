@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-import IndexNavbar from "./../components/Navbars/IndexNavbar.js";
+import IndexNavbar from "../components/Navbars/IndexNavbar";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
 import IndexFooter from "../components/Footers/IndexFooter";
 import {Col, Container, Row} from "reactstrap";
@@ -49,7 +49,7 @@ function GMapReact({center}) {
 
 
 function TagsList({tags}) {
-    if (tags && tags.length ) {
+    if (tags && tags.length) {
         return (
             <div><h5>
                 {tags.map((tag, i) => (
@@ -87,10 +87,9 @@ class Event extends Component {
                 return res.json();
             })
             .then((data) => {
-                console.log(data);
-                data.logo = data.logo ? data.logo : require("assets/img/matzore_logo_192.png");
+                data.event.logo = data.event.logo ? data.event.logo : require("assets/img/matzore_logo_192.png");
                 this.setState({
-                    event: data,
+                    event: data.event,
                     center: {lat: parseFloat(data.coordinates[0]), lng: parseFloat(data.coordinates[1])}
                 });
             })

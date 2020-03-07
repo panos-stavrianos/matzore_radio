@@ -14,7 +14,6 @@ const ScheduleTimeline = ({records, day}) => {
     if (today.toLocaleString("en-US", {weekday: 'long'}) === day[0]) {
         is_today = true;
         let time = today.getHours() + ":" + today.getMinutes()
-        console.log(time)
         records.forEach((record, i) => {
             if (time > record.from_time && time < record.to_time) {
                 console.log("!!!!")

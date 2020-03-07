@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-import IndexNavbar from "./../components/Navbars/IndexNavbar.js";
+import IndexNavbar from "../components/Navbars/IndexNavbar";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
 import EventsGrid from "components/Grids/EventsGrid";
 import IndexFooter from "../components/Footers/IndexFooter";
@@ -13,7 +13,7 @@ class Events extends Component {
     componentDidMount() {
         fetch('https://matzore-shows.herokuapp.com/api/get_events')
             .then(res => res.json())
-            .then((data) => this.setState({events: data}))
+            .then((data) => this.setState(data))
             .catch(console.log);
     }
 

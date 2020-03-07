@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-import IndexNavbar from "./../components/Navbars/IndexNavbar.js";
+import IndexNavbar from "../components/Navbars/IndexNavbar";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
 import IndexFooter from "../components/Footers/IndexFooter";
 import {Tab, Tabs} from "react-bootstrap";
@@ -16,7 +16,7 @@ class Schedule extends Component {
     componentDidMount() {
         fetch('https://matzore-shows.herokuapp.com/api/get_schedule')
             .then(res => res.json())
-            .then((data) => this.setState({schedule: data.schedule, days: data.days}))
+            .then((data) => this.setState(data))
             .catch(console.log);
     }
 

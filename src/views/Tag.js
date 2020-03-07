@@ -1,10 +1,10 @@
 import React, {Component} from "react";
 
-import IndexNavbar from "./../components/Navbars/IndexNavbar.js";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
 import IndexFooter from "../components/Footers/IndexFooter";
 import ArticlesGrid from "../components/Grids/ArticlesGrid";
 import EventsGrid from "../components/Grids/EventsGrid";
+import IndexNavbar from "../components/Navbars/IndexNavbar";
 
 class Tag extends Component {
     state = {
@@ -13,7 +13,6 @@ class Tag extends Component {
 
     componentDidMount() {
         const {match: {params}} = this.props;
-        console.log(params.id);
         fetch('https://matzore-shows.herokuapp.com/api/get_tag/' + params.id)
             .then(res => res.json())
             .then((data) => {

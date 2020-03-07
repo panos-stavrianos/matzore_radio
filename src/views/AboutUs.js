@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import "assets/css/social_bar.css";
 
-import IndexNavbar from "./../components/Navbars/IndexNavbar.js";
+import IndexNavbar from "../components/Navbars/IndexNavbar";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
 import {Col, Container, Row} from "reactstrap";
 

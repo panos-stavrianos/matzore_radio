@@ -63,6 +63,7 @@ ReactDOM.render(
             <Route path="/events" render={props => <Events {...props} />}/>
             <Route path="/event/:id" component={Event}/>
             <Route path="/articles" render={props => <Articles {...props} />}/>
+            <Route path="/category/:id" component={Articles}/>
             <Route path="/article/:id" component={Article}/>
             <Route path="/tag/:id" component={Tag}/>
 
