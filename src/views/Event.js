@@ -49,7 +49,7 @@ function GMapReact({center}) {
 
 
 function TagsList({tags}) {
-    if (tags.length > 0) {
+    if (tags && tags.length ) {
         return (
             <div><h5>
                 {tags.map((tag, i) => (

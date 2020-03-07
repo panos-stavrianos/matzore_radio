@@ -3,19 +3,24 @@ import React, {Component} from "react";
 import IndexNavbar from "./../components/Navbars/IndexNavbar.js";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
 import IndexFooter from "../components/Footers/IndexFooter";
-import {
-    Col,
-    Container,
-    Row
-} from "reactstrap";
+import {Col, Container, Row} from "reactstrap";
 
+function member_title(member) {
+    if (member.articles && member.shows && member.articles.length && member.shows.length)
+        return "Music Producer / Author";
+    else if (member.articles && member.articles.length)
+        return "Author";
+    else if (member.shows && member.shows.length)
+        return "Music Producer";
+    else return "Member"
+}
 
 function ShowsList({shows}) {
-    if (shows.length > 0) {
+    if (shows && shows.length) {
         return (
             <div>
                 <h3>Εκπομπές</h3>
-                {shows.map((show,i) => (
+                {shows.map((show, i) => (
                     <h5 key={i}><a href={'/show/' + show.id}>{show.name}</a></h5>
                 ))}
             </div>
@@ -24,7 +29,22 @@ function ShowsList({shows}) {
         return (<br/>)
 }
 
-class Producer extends Component {
+function ArticlesList({articles}) {
+    console.log(articles)
+    if (articles && articles.length) {
+        return (
+            <div>
+                <h3>Άρθρα</h3>
+                {articles.map((article, i) => (
+                    <h5 key={i}><a href={'/article/' + article.id}>{article.title}</a></h5>
+                ))}
+            </div>
+        );
+    } else
+        return (<br/>)
+}
+
+class Member extends Component {
     state = {
         member: {
             'name': '',
@@ -68,7 +88,7 @@ class Producer extends Component {
                                 <h4 className="title">
                                     {this.state.member.name} <br/>
                                 </h4>
-                                <h6 className="description">Music Producer</h6>
+                                <h6 className="description">{member_title(this.state.member)}</h6>
                             </div>
                         </div>
                         <Row>
@@ -80,12 +100,15 @@ class Producer extends Component {
                         </Row>
 
                         <Row>
-
                             <Col className="ml-auto mr-auto text-center">
                                 <ShowsList shows={this.state.member.shows}/>
                             </Col>
                         </Row>
-
+                        <Row>
+                            <Col className="ml-auto mr-auto text-center">
+                                <ArticlesList articles={this.state.member.articles}/>
+                            </Col>
+                        </Row>
 
                         <br/>
                     </Container>
@@ -97,4 +120,4 @@ class Producer extends Component {
 
 }
 
-export default Producer;
+export default Member;

@@ -96,7 +96,7 @@ function IndexNavbar() {
                         <NavDropdown title="Radio" id="basic-nav-dropdown">
                             <NavDropdown.Item href="/schedule">ΠΡΟΓΡΑΜΜΑ ΕΚΠΟΜΠΩΝ</NavDropdown.Item>
                             <NavDropdown.Item href="/shows">ΕΚΠΟΜΠΕΣ</NavDropdown.Item>
-                            <NavDropdown.Item href="/producers">ΠΑΡΑΓΩΓΟΙ</NavDropdown.Item>
+                            <NavDropdown.Item href="/members">ΜΕΛΗ</NavDropdown.Item>
                         </NavDropdown>
                         <NavItem>
                             <NavLink href="/chat">

@@ -18,7 +18,7 @@ function set_image(meta_url) {
         url: image_url,
         type: 'GET',
         success: function (data) {
-            if (data.images.length > 0) {
+            if (data.images && data.images.length) {
                 $('#cover').css('background-image', 'url(' + data.images[0].image + ')');
             } else
                 $('#cover').css('background-image', `url(${default_cover})`);
@@ -140,16 +140,21 @@ function RadioPlayer() {
 
     soundManager.onready(function () {
         sound = soundManager.createSound({
+            useFastPolling: true,
+            useHighPerformance: true,
             id: 'Radio',
-            url: 'http://rs.radio.uoc.gr:8000/matzore_64.mp3',
+            url: ['http://rs.radio.uoc.gr:8000/matzore_64.ogg', 'http://rs.radio.uoc.gr:8000/matzore_64.mp3'],
+            bufferTime: 9,
             onstop: function () {
                 set_icon(-1, set_music_card_playing)
             },
             onbufferchange: function (action) {
+                console.log(action)
                 set_icon(action, set_music_card_playing);
             }
         });
     });
+
 
     start_autobahn();
 

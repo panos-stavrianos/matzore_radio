@@ -17,7 +17,7 @@ function DescriptionMD({description}) {
 }
 
 function TagsList({tags, category}) {
-    if (tags.length > 0) {
+    if (tags && tags.length) {
         return (
             <div><h4>
                 <span className="badge badge-default m-1">
@@ -36,7 +36,7 @@ function TagsList({tags, category}) {
 }
 
 function AuthorsList({authors}) {
-    if (authors.length > 0) {
+    if (authors && authors.length) {
         return (
             <>
                 {authors.map((author, i) => (

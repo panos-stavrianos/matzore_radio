@@ -3,9 +3,10 @@ import React, {Component} from "react";
 import IndexNavbar from "./../components/Navbars/IndexNavbar.js";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
 import IndexFooter from "../components/Footers/IndexFooter";
-import ProducersGrid from "../components/Grids/ProducersGrid";
+import MembersGrid from "../components/Grids/MembersGrid";
 
-class Producers extends Component {
+
+class Members extends Component {
     state = {
         members: []
     };
@@ -23,7 +24,7 @@ class Producers extends Component {
                 <IndexNavbar/>
                 <IndexHeader/>
                 <div className="main">
-                    <ProducersGrid members={this.state.members}/>
+                    <MembersGrid members={this.state.members}/>
                 </div>
                 <IndexFooter/>
             </>
@@ -31,4 +32,4 @@ class Producers extends Component {
     }
 }
 
-export default Producers;
+export default Members;

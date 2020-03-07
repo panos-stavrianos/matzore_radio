@@ -2,17 +2,27 @@ import React from "react";
 
 
 const ScheduleTimeline = ({records, day}) => {
-    console.log(records);
-    console.log(day);
-
     if (!records || records.length === 0) {
-        console.log("!!!!!!!!!!!!!!");
         return (
             <div className='m-5 justify-content-center'>
                 <h4 className='m-4'>Δεν υπάρχει πρόγραμμα εκπομπών</h4>
             </div>
         );
     }
+    let today = new Date()
+    let is_today = false;
+    if (today.toLocaleString("en-US", {weekday: 'long'}) === day[0]) {
+        is_today = true;
+        let time = today.getHours() + ":" + today.getMinutes()
+        console.log(time)
+        records.forEach((record, i) => {
+            if (time > record.from_time && time < record.to_time) {
+                console.log("!!!!")
+            }
+
+        });
+    }
+
 
     return (
         <div className='m-5 justify-content-center'>

@@ -27,13 +27,14 @@ class Schedule extends Component {
                 <IndexHeader/>
                 <div className="main">
                     <Container>
-                    <Tabs fill defaultActiveKey="Monday" id="uncontrolled-tab-example">
+                        <Tabs fill defaultActiveKey={new Date().toLocaleString("en-US", {weekday: 'long'})}
+                              id="uncontrolled-tab-example">
                             {Object.keys(this.state.days).map((day, i) => (
                                 <Tab eventKey={this.state.days[day][0]} title={this.state.days[day][1]} key={i}>
-                                    <ScheduleTimeline records={this.state.schedule[day]} day={day}/>
+                                    <ScheduleTimeline records={this.state.schedule[day]} day={this.state.days[day]}/>
                                 </Tab>
                             ))}
-                    </Tabs>
+                        </Tabs>
                     </Container>
                 </div>
                 <IndexFooter/>

@@ -2,11 +2,11 @@ import React from "react";
 import {Col, Row} from "reactstrap";
 
 
-const ProducersGrid = ({members}) => {
+const MembersGrid = ({members}) => {
     if (!members || members.length === 0)
         return (
             <div className='m-5 justify-content-center'>
-                <h4 className='m-4'>Δεν υπάρχουν παραγωγοί</h4>
+                <h4 className='m-4'>Δεν υπάρχουν μέλη</h4>
             </div>
         );
     return (
@@ -16,7 +16,7 @@ const ProducersGrid = ({members}) => {
                 {members.map((member, i) => (
                     <Col xl="3" md="4" sm="6" xs="12" key={i}>
                         <div className="card">
-                            <a href={'/producer/' + member.id}>
+                            <a href={'/member/' + member.id}>
                                 <div className="card-header avatar">
                                     <img
                                         style={{height: "170px", width: "170px"}}
@@ -38,4 +38,4 @@ const ProducersGrid = ({members}) => {
     )
 };
 
-export default ProducersGrid
+export default MembersGrid

@@ -36,13 +36,13 @@ import Index from "views/Index.js";
 import Shows from "./views/Shows";
 import Chat from "./views/Chat";
 import AboutUs from "./views/AboutUs";
-import Producers from "./views/Producers";
+import Members from "./views/Members";
 import Schedule from "./views/Schedule";
 import Events from "./views/Events";
 import Event from "./views/Event";
 import Articles from "./views/Articles";
 import Article from "./views/Article";
-import Producer from "./views/Producer";
+import Member from "./views/Member";
 import Show from "./views/Show";
 import Tag from "./views/Tag";
 // others
@@ -57,9 +57,9 @@ ReactDOM.render(
 
             <Route path="/shows" render={props => <Shows {...props} />}/>
             <Route path="/show/:id" component={Show}/>
-            <Route path="/producers" render={props => <Producers {...props} />}/>
-            <Route path="/producer/:id" component={Producer}/>
-            <Route path="/author/:id" component={Producer}/>
+            <Route path="/members" render={props => <Members {...props} />}/>
+            <Route path="/member/:id" component={Member}/>
+            <Route path="/author/:id" component={Member}/>
             <Route path="/events" render={props => <Events {...props} />}/>
             <Route path="/event/:id" component={Event}/>
             <Route path="/articles" render={props => <Articles {...props} />}/>
