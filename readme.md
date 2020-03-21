@@ -1,5 +1,6 @@
 ## Matzore fm 89.1
-
+ 
+> You need to have `npm` installed 
 ### Download, Build and Run
 ```sh
 git clone https://github.com/panos-stavrianos/matzore_radio.git
