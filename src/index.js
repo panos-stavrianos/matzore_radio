@@ -21,7 +21,7 @@ import Article from "./views/Article";
 import Member from "./views/Member";
 import Show from "./views/Show";
 import Tag from "./views/Tag";
-// others
+//  others
 
 ReactDOM.render(
     <BrowserRouter>
