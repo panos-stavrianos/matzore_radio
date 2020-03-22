@@ -54,7 +54,6 @@ ReactDOM.render(
             <Route path="/chat" render={props => <Chat {...props} />}/>
             <Route path="/about_us" render={props => <AboutUs {...props} />}/>
             <Route path="/schedule" render={props => <Schedule {...props} />}/>
-
             <Route path="/shows" render={props => <Shows {...props} />}/>
             <Route path="/show/:id" component={Show}/>
             <Route path="/members" render={props => <Members {...props} />}/>
