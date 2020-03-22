@@ -20,11 +20,15 @@ jobs:
           npm run install:clean
         env:
           CI: false
-          
+      - uses: actions/checkout@v2
+      - name: Zip build folder
+        run: |
+          zip -r build.zip build
       - uses: meeDamian/github-release@2.0
+      - name: Create release
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: Latest
           allow_override: true
-          files: build/
-          gzip: folders
+          files: build.zip
+          gzip: false

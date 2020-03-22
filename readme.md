@@ -10,6 +10,15 @@ npm run install:clean
 export PORT=80 # optional, default: 8080
 npm start
 ```
+
+## Alternatively use a prebuild release
+
+You can download from the latest release the build.zip
+
+```
+wget https://github.com/panos-stavrianos/matzore_radio/releases/download/Latest/build.tgz
+```
+
 ### NGINX 
 ##### If you want to run it via nginx , here is an example conf
 Copy the contents of the build folder in the location you prefer
