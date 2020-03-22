@@ -20,11 +20,13 @@ jobs:
           npm run install:clean
         env:
           CI: false
-      - name: Zip the build folder
+
+      - name: Checkout code
         uses: actions/checkout@v2
-      - name: Zip the build folder2
+      - name: Build project
         run: |
           zip -r build.zip build
+
       - uses: meeDamian/github-release@2.0
       - name: Create release
         with:
