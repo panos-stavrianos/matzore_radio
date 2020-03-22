@@ -26,7 +26,6 @@ class Shows extends Component {
                     <ShowsGrid shows={this.state.shows}/>
                 </div>
                 <IndexFooter/>
-
             </>
         )
     }
