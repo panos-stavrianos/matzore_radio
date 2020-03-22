@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@toast-ui/react-editor": "^1.0.1",
-    "a11y-react-emoji": "^1.1.2",
     "autobahn": "^20.2.1",
     "bootstrap": "^4.4.1",
     "classnames": "^2.2.6",
