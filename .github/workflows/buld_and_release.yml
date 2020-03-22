@@ -16,7 +16,6 @@ jobs:
           files: public/
           recursive: false
           dest: public.zip
-      - uses: actions/checkout@v2
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
