@@ -19,6 +19,11 @@ jobs:
           npm run install:clean
         env:
           CI: false
+      - uses: papeloto/action-zip@v1
+        with:
+          files: build/
+          recursive: false
+          dest: build.zip
       - uses: meeDamian/github-release@2.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
