@@ -22,8 +22,7 @@ jobs:
           CI: false
 
       - name: Checkout code
-      - uses: actions/checkout@v2
-      - name: Build project
+        uses: actions/checkout@v2
         run: |
           zip -r build.zip build
 
