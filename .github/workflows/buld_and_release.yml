@@ -20,5 +20,3 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: Latest
           allow_override: true
-          files: public.zip
-          gzip: false
