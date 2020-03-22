@@ -1,5 +1,5 @@
 ## Matzore fm 89.1
- 
+ ![Build and Release](https://github.com/panos-stavrianos/matzore_radio/workflows/Build%20and%20Release/badge.svg)
 ### Download, Build and Run on node express server
 > You need to have `npm` installed 
 
