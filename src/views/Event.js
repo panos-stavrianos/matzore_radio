@@ -4,9 +4,9 @@ import IndexNavbar from "../components/Navbars/IndexNavbar";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
 import IndexFooter from "../components/Footers/IndexFooter";
 import {Col, Container, Row} from "reactstrap";
-import {Viewer} from '@toast-ui/react-editor'
 import GoogleMapReact from 'google-map-react';
 import Moment from "react-moment";
+import marked from "marked";
 
 const renderMarkers = (map, maps, lat, lng) => {
     let marker = new maps.Marker({
@@ -20,13 +20,9 @@ const renderMarkers = (map, maps, lat, lng) => {
 
 function DescriptionMD({description}) {
     return (
-        <Viewer
-            initialValue={description}
-            previewStyle="vertical"
-            initialEditType="markdown"
-        />)
+        <p dangerouslySetInnerHTML={{__html: marked(description)}}></p>
+    )
 }
-
 function GMapReact({center}) {
     let defaultProps = {
         center: {lat: 35.3641978, lng: 24.4777767},

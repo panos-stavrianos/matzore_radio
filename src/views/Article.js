@@ -4,18 +4,14 @@ import IndexNavbar from "../components/Navbars/IndexNavbar";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
 import IndexFooter from "../components/Footers/IndexFooter";
 import {Col, Container, Row} from "reactstrap";
-import {Viewer} from '@toast-ui/react-editor'
 import Moment from "react-moment";
+import marked from 'marked'
 
 function DescriptionMD({description}) {
     return (
-        <Viewer
-            initialValue={description}
-            previewStyle="vertical"
-            initialEditType="markdown"
-        />)
+        <p dangerouslySetInnerHTML={{__html: marked(description)}}></p>
+    )
 }
-
 function TagsList({tags, category}) {
     if (tags && tags.length) {
         return (

@@ -5,11 +5,6 @@ import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
 import "assets/css/bootstrap.min.css";
 import "assets/scss/paper-kit.scss";
 
-import 'tui-editor/dist/tui-editor-contents.css';
-import 'highlight.js/styles/github.css';
-import 'tui-editor/dist/tui-editor.min.css';
-import 'tui-editor/dist/tui-editor-contents.min.css';
-
 import "assets/css/index.css";
 import 'assets/css/schedule.css';
 // pages

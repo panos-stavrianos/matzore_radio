@@ -10,9 +10,7 @@ const ScheduleTimeline = ({records, day}) => {
         );
     }
     let today = new Date()
-    let is_today = false;
     if (today.toLocaleString("en-US", {weekday: 'long'}) === day[0]) {
-        is_today = true;
         let time = today.getHours() + ":" + today.getMinutes()
         records.forEach((record, i) => {
             if (time > record.from_time && time < record.to_time) {

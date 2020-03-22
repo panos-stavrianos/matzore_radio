@@ -51,4 +51,4 @@ Copy the contents of the build folder in the location you prefer
     RewriteRule ^ index.html [L]
 </Directory>
 ```
-
+ 

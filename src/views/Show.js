@@ -3,7 +3,7 @@ import IndexNavbar from "../components/Navbars/IndexNavbar";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
 import IndexFooter from "../components/Footers/IndexFooter";
 import {Col, Container, Row} from "reactstrap";
-import {Viewer} from '@toast-ui/react-editor'
+import marked from "marked";
 
 function Social({social, link}) {
     switch (social) {
@@ -22,17 +22,13 @@ function Social({social, link}) {
         default:
             return (<></>)
     }
-
-
 }
+
 
 function DescriptionMD({description}) {
     return (
-        <Viewer
-            initialValue={description}
-            previewStyle="vertical"
-            initialEditType="markdown"
-        />)
+        <p dangerouslySetInnerHTML={{__html: marked(description)}}></p>
+    )
 }
 
 function MembersList({producers: members}) {
