@@ -44,5 +44,6 @@ ReactDOM.render(
             <Redirect to="/index"/>
         </Switch>
     </BrowserRouter>,
+
     document.getElementById("root")
 );
