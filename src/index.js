@@ -41,7 +41,6 @@ ReactDOM.render(
             <Route path="/category/:id" component={Articles}/>
             <Route path="/article/:id" component={Article}/>
             <Route path="/tag/:id" component={Tag}/>
-
             <Redirect to="/index"/>
         </Switch>
     </BrowserRouter>,
