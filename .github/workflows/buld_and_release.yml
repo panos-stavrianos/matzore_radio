@@ -10,24 +10,15 @@ jobs:
       matrix:
         node-version: [10.x]
     steps:
-      - uses: actions/checkout@master
-      - uses: actions/setup-node@master
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: Build
-        run: |
-          npm run install:clean
-        env:
-          CI: false
       - uses: papeloto/action-zip@v1
         with:
-          files: build/
+          files: public/
           recursive: false
-          dest: build.zip
+          dest: public.zip
       - uses: meeDamian/github-release@2.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: Latest
           allow_override: true
-          files: build.zip
+          files: public.zip
           gzip: false
