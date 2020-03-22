@@ -27,3 +27,4 @@ jobs:
           tag: v0.0.1
           allow_override: true
           files: build/
+          gzip: folders
