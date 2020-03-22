@@ -16,7 +16,11 @@ npm start
 You can download from the latest release the build.zip
 
 ```
-wget https://github.com/panos-stavrianos/matzore_radio/releases/download/Latest/build.tgz
+# cd to the folder you want to host the files
+wget https://github.com/panos-stavrianos/matzore_radio/releases/download/Latest/build.zip
+uzip build.zip
+unzip build.zip 'build/*' 
+
 ```
 
 ### NGINX 
