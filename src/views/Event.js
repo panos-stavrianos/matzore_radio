@@ -19,8 +19,9 @@ const renderMarkers = (map, maps, lat, lng) => {
 
 
 function DescriptionMD({description}) {
+    console.log(description)
     return (
-        <p dangerouslySetInnerHTML={{__html: marked(description)}}></p>
+        <p dangerouslySetInnerHTML={{__html: marked(description)}}/>
     )
 }
 function GMapReact({center}) {
@@ -83,10 +84,11 @@ class Event extends Component {
                 return res.json();
             })
             .then((data) => {
+                console.log(data);
                 data.event.logo = data.event.logo ? data.event.logo : require("assets/img/matzore_logo_192.png");
                 this.setState({
                     event: data.event,
-                    center: {lat: parseFloat(data.coordinates[0]), lng: parseFloat(data.coordinates[1])}
+                    center: {lat: parseFloat(data.event.coordinates[0]), lng: parseFloat(data.event.coordinates[1])}
                 });
             })
             .catch(console.log);

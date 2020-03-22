@@ -16,6 +16,7 @@ class Tag extends Component {
         fetch('https://matzore-shows.herokuapp.com/api/get_tag/' + params.id)
             .then(res => res.json())
             .then((data) => {
+                console.log(data);
                 this.setState(data);
             })
             .catch(console.log);
