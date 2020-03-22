@@ -19,9 +19,7 @@ jobs:
           npm run install:clean
         env:
           CI: false
-      - uses: actions/checkout@v2
-        run: |
-          zip -r build.zip build
+
       - uses: meeDamian/github-release@2.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
