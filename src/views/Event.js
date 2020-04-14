@@ -85,7 +85,7 @@ class Event extends Component {
             })
             .then((data) => {
                 console.log(data);
-                data.event.logo = data.event.logo ? data.event.logo : require("assets/img/matzore_logo_192.png");
+                data.event.cover = data.event.cover ? data.event.cover : require("assets/img/matzore_logo_192.png");
                 this.setState({
                     event: data.event,
                     center: {lat: parseFloat(data.event.coordinates[0]), lng: parseFloat(data.event.coordinates[1])}

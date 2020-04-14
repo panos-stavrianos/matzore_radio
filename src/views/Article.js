@@ -81,7 +81,7 @@ class Article extends Component {
                 return res.json();
             })
             .then((data) => {
-                data.article.logo = data.article.logo ? data.article.logo : require("assets/img/matzore_logo_192.png");
+                data.article.cover = data.article.cover ? data.article.cover : require("assets/img/matzore_logo_192.png");
                 console.log(this.state)
 
                 data.meta = {
@@ -90,7 +90,10 @@ class Article extends Component {
                     meta: {
                         property: {
                             "og:title": data.article.title,
-                            'og:image': data.article.logo
+                            "og:type": 'article',
+                            'og:image': data.article.cover,
+                            'og:url': "http://matzore.radio.uoc.gr",
+                            'og:description': data.article.short_description,
                         },
                         charset: 'utf-8',
                     }
