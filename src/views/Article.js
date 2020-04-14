@@ -6,12 +6,14 @@ import IndexFooter from "../components/Footers/IndexFooter";
 import {Col, Container, Row} from "reactstrap";
 import Moment from "react-moment";
 import marked from 'marked'
+import DocumentMeta from "react-document-meta";
 
 function DescriptionMD({description}) {
     return (
         <p dangerouslySetInnerHTML={{__html: marked(description)}}></p>
     )
 }
+
 function TagsList({tags, category}) {
     if (tags && tags.length) {
         return (
@@ -56,6 +58,20 @@ class Article extends Component {
             'authors': [],
             'tags': []
         },
+        meta: {
+            title: 'Matzore FM',
+            description: 'Ο σταθμός του Πανεπιστημίου Κρήτης στο Ρέθυμνο',
+            meta: {
+                property: {
+                    "og:title": "Matzore",
+                    'og:image': 'http://matzore.radio.uoc.gr/static/media/matzore_logo_192.f10c1636.png'
+                },
+                charset: 'utf-8',
+                name: {
+                    keywords: 'react,meta,document,html,tags'
+                }
+            }
+        }
     };
 
     componentDidMount() {
@@ -66,14 +82,30 @@ class Article extends Component {
             })
             .then((data) => {
                 data.article.logo = data.article.logo ? data.article.logo : require("assets/img/matzore_logo_192.png");
+                console.log(this.state)
+
+                data.meta = {
+                    title: data.article.title,
+                    description: data.article.short_description,
+                    meta: {
+                        property: {
+                            "og:title": data.article.title,
+                            'og:image': data.article.logo
+                        },
+                        charset: 'utf-8',
+                    }
+                }
                 this.setState(data);
+                console.log(this.state)
             })
             .catch(console.log);
     }
 
+
     render() {
         return (
-            <>
+            <DocumentMeta {...this.state.meta}>
+
                 <IndexNavbar/>
                 <IndexHeader/>
                 <div className="section profile-content">
@@ -122,7 +154,8 @@ class Article extends Component {
                     </Container>
                 </div>
                 <IndexFooter/>
-            </>
+            </DocumentMeta>
+
         )
     }
 }

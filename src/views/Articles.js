@@ -8,7 +8,7 @@ import IndexFooter from "../components/Footers/IndexFooter";
 class Articles extends Component {
     state = {
         articles: [],
-        category: {}
+        category: {},
     };
 
     componentDidMount() {
