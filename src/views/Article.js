@@ -92,7 +92,6 @@ class Article extends Component {
                             "og:title": data.article.title,
                             "og:type": 'article',
                             'og:image': data.article.cover,
-                            'og:url': "http://matzore.radio.uoc.gr",
                             'og:description': data.article.short_description,
                         },
                         charset: 'utf-8',
