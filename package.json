@@ -59,7 +59,7 @@
     "postinstall": "node scripts/build.js"
   },
   "engines": {
-    "node": "~10.15.2",
+    "node": "~12.16.2",
     "npm": "~5.8.0"
   },
   "eslintConfig": {
