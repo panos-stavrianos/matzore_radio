@@ -3,7 +3,7 @@ export function get_default_meta({
                                      description = 'Ο σταθμός του Πανεπιστημίου Κρήτης στο Ρέθυμνο',
                                      image = 'http://matzore.radio.uoc.gr/static/media/matzore_logo_192.f10c1636.png',
                                      type = 'music.radio_station',
-                                     url = document.location.origin,
+                                     url = document.location.href,
                                      keywords = 'Ματζόρε,matzore,radio,radio station,rethymno,uoc,ρέθυμνο,φοιτητικός σταθμός,Πανεπιστημίου Κρήτης'
                                  }={}
 ) {
@@ -16,7 +16,7 @@ export function get_default_meta({
                 'og:description': description,
                 'og:image': image,
                 'og:type': type,
-                // 'og:url': url
+                'og:url': url
             },
             charset: 'utf-8',
             name: {
