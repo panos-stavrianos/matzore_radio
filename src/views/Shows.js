@@ -4,6 +4,8 @@ import IndexNavbar from "../components/Navbars/IndexNavbar";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
 import ShowsGrid from "components/Grids/ShowsGrid";
 import IndexFooter from "../components/Footers/IndexFooter";
+import {get_default_meta} from "../default_meta";
+import DocumentMeta from "react-document-meta";
 
 class Shows extends Component {
     state = {
@@ -19,14 +21,14 @@ class Shows extends Component {
 
     render() {
         return (
-            <>
+            <DocumentMeta {...get_default_meta({title: 'Εκπομπές'})}>
                 <IndexNavbar/>
                 <IndexHeader/>
                 <div className="main">
                     <ShowsGrid shows={this.state.shows}/>
                 </div>
                 <IndexFooter/>
-            </>
+            </DocumentMeta>
         )
     }
 }

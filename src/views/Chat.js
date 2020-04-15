@@ -4,12 +4,14 @@ import IndexNavbar from "../components/Navbars/IndexNavbar";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
 import MediaQuery from 'react-responsive';
 import IndexFooter from "../components/Footers/IndexFooter";
+import {get_default_meta} from "../default_meta";
+import DocumentMeta from "react-document-meta";
 
 class Chat extends Component {
 
     render() {
         return (
-            <>
+            <DocumentMeta {...get_default_meta({title: 'Chat'})}>
                 <IndexNavbar/>
                 <IndexHeader/>
                 <div className="main">
@@ -29,7 +31,7 @@ class Chat extends Component {
                     </MediaQuery>
                 </div>
                 <IndexFooter/>
-            </>
+            </DocumentMeta>
         )
     }
 }

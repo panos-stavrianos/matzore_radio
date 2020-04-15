@@ -4,7 +4,7 @@ import DocumentMeta from 'react-document-meta';
 import IndexNavbar from "../components/Navbars/IndexNavbar";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
 import IndexFooter from "./../components/Footers/IndexFooter.js";
-import {default_meta} from "../default_meta";
+import {get_default_meta} from "../default_meta";
 
 // reactstrap components
 
@@ -20,7 +20,7 @@ function Index() {
     });
 
     return (
-        <DocumentMeta {...default_meta}>
+        <DocumentMeta {...get_default_meta()}>
             <IndexNavbar/>
             <IndexHeader/>
             {/*<div className="main">*/}

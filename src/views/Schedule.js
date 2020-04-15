@@ -6,6 +6,8 @@ import IndexFooter from "../components/Footers/IndexFooter";
 import {Tab, Tabs} from "react-bootstrap";
 import ScheduleTimeline from "../components/Grids/ScheduleTimeline";
 import {Container} from "reactstrap";
+import {get_default_meta} from "../default_meta";
+import DocumentMeta from "react-document-meta";
 
 class Schedule extends Component {
     state = {
@@ -22,7 +24,7 @@ class Schedule extends Component {
 
     render() {
         return (
-            <>
+            <DocumentMeta {...get_default_meta({title: 'Πρόγραμμα Εκπομπών'})}>
                 <IndexNavbar/>
                 <IndexHeader/>
                 <div className="main">
@@ -39,7 +41,7 @@ class Schedule extends Component {
                 </div>
                 <IndexFooter/>
 
-            </>
+            </DocumentMeta>
         )
     }
 }

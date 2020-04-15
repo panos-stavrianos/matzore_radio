@@ -7,6 +7,7 @@ import {Col, Container, Row} from "reactstrap";
 import Moment from "react-moment";
 import marked from 'marked'
 import DocumentMeta from "react-document-meta";
+import {get_default_meta} from "../default_meta";
 
 function DescriptionMD({description}) {
     return (
@@ -58,20 +59,7 @@ class Article extends Component {
             'authors': [],
             'tags': []
         },
-        meta: {
-            title: 'Matzore FM',
-            description: 'Ο σταθμός του Πανεπιστημίου Κρήτης στο Ρέθυμνο',
-            meta: {
-                property: {
-                    "og:title": "Matzore",
-                    'og:image': 'http://matzore.radio.uoc.gr/static/media/matzore_logo_192.f10c1636.png'
-                },
-                charset: 'utf-8',
-                name: {
-                    keywords: 'react,meta,document,html,tags'
-                }
-            }
-        }
+        meta: get_default_meta()
     };
 
     componentDidMount() {
@@ -82,21 +70,12 @@ class Article extends Component {
             })
             .then((data) => {
                 data.article.cover = data.article.cover ? data.article.cover : require("assets/img/matzore_logo_192.png");
-                console.log(this.state)
-
-                data.meta = {
+                data.meta = get_default_meta({
                     title: data.article.title,
                     description: data.article.short_description,
-                    meta: {
-                        property: {
-                            "og:title": data.article.title,
-                            "og:type": 'article',
-                            'og:image': data.article.cover,
-                            'og:description': data.article.short_description,
-                        },
-                        charset: 'utf-8',
-                    }
-                }
+                    type: 'article',
+                    image: data.article.cover
+                })
                 this.setState(data);
                 console.log(this.state)
             })
@@ -107,7 +86,6 @@ class Article extends Component {
     render() {
         return (
             <DocumentMeta {...this.state.meta}>
-
                 <IndexNavbar/>
                 <IndexHeader/>
                 <div className="section profile-content">

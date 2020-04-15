@@ -5,10 +5,13 @@ import IndexFooter from "../components/Footers/IndexFooter";
 import ArticlesGrid from "../components/Grids/ArticlesGrid";
 import EventsGrid from "../components/Grids/EventsGrid";
 import IndexNavbar from "../components/Navbars/IndexNavbar";
+import DocumentMeta from "react-document-meta";
+import {get_default_meta} from "../default_meta";
 
 class Tag extends Component {
     state = {
-        articles: []
+        articles: [],
+        events: []
     };
 
     componentDidMount() {
@@ -16,7 +19,6 @@ class Tag extends Component {
         fetch('https://matzore-shows.herokuapp.com/api/get_tag/' + params.id)
             .then(res => res.json())
             .then((data) => {
-                console.log(data);
                 this.setState(data);
             })
             .catch(console.log);
@@ -24,7 +26,7 @@ class Tag extends Component {
 
     render() {
         return (
-            <>
+            <DocumentMeta {...get_default_meta({title: 'Tag'})}>
                 <IndexNavbar/>
                 <IndexHeader/>
                 <div className="main">
@@ -33,7 +35,7 @@ class Tag extends Component {
                 </div>
                 <IndexFooter/>
 
-            </>
+            </DocumentMeta>
         )
     }
 }

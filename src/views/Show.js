@@ -4,6 +4,8 @@ import IndexHeader from "./../components/Headers/IndexHeader.js";
 import IndexFooter from "../components/Footers/IndexFooter";
 import {Col, Container, Row} from "reactstrap";
 import marked from "marked";
+import DocumentMeta from "react-document-meta";
+import {get_default_meta} from "../default_meta";
 
 function Social({social, link}) {
     switch (social) {
@@ -57,7 +59,8 @@ class Show extends Component {
             'twitter': '',
             'logo': require("assets/img/matzore_logo_192.png"),
             'members': [],
-        }
+        },
+        meta: get_default_meta()
     };
 
     componentDidMount() {
@@ -68,6 +71,11 @@ class Show extends Component {
             })
             .then((data) => {
                 data.show.logo = data.show.logo ? data.show.logo : require("assets/img/matzore_logo_192.png");
+                data.meta = get_default_meta({
+                    title: data.show.name,
+                    description: data.show.description,
+                    image: data.show.logo
+                })
                 this.setState(data);
             })
             .catch(console.log);
@@ -75,7 +83,7 @@ class Show extends Component {
 
     render() {
         return (
-            <>
+            <DocumentMeta {...this.state.meta}>
                 <IndexNavbar/>
                 <IndexHeader/>
                 <div className="section profile-content">
@@ -114,7 +122,7 @@ class Show extends Component {
                     </Container>
                 </div>
                 <IndexFooter/>
-            </>
+            </DocumentMeta>
         )
     }
 }

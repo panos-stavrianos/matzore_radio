@@ -4,6 +4,8 @@ import IndexNavbar from "../components/Navbars/IndexNavbar";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
 import IndexFooter from "../components/Footers/IndexFooter";
 import {Col, Container, Row} from "reactstrap";
+import DocumentMeta from "react-document-meta";
+import {get_default_meta} from "../default_meta";
 
 function member_title(member) {
     if (member.articles && member.shows && member.articles.length && member.shows.length)
@@ -50,7 +52,8 @@ class Member extends Component {
             'bio': '',
             'avatar': require("assets/img/matzore_logo_192.png"),
             'shows': []
-        }
+        },
+        meta: get_default_meta()
     };
 
     componentDidMount() {
@@ -61,6 +64,11 @@ class Member extends Component {
             })
             .then((data) => {
                 data.member.avatar = data.member.avatar ? data.member.avatar : require("assets/img/matzore_logo_192.png")
+                data.meta = get_default_meta({
+                    title: data.member.name,
+                    description: data.member.bio,
+                    image: data.member.avatar
+                })
                 this.setState(data);
             })
             .catch(console.log);
@@ -69,8 +77,8 @@ class Member extends Component {
 
     render() {
         return (
-            <>
-                <IndexNavbar/>
+            <DocumentMeta {...this.state.meta}>
+            <IndexNavbar/>
                 <IndexHeader/>
                 <div className="section profile-content">
                     <Container>
@@ -112,7 +120,7 @@ class Member extends Component {
                     </Container>
                 </div>
                 <IndexFooter/>
-            </>
+            </DocumentMeta>
         )
     }
 

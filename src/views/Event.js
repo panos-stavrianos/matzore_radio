@@ -7,6 +7,8 @@ import {Col, Container, Row} from "reactstrap";
 import GoogleMapReact from 'google-map-react';
 import Moment from "react-moment";
 import marked from "marked";
+import {get_default_meta} from "../default_meta";
+import DocumentMeta from "react-document-meta";
 
 const renderMarkers = (map, maps, lat, lng) => {
     let marker = new maps.Marker({
@@ -24,6 +26,7 @@ function DescriptionMD({description}) {
         <p dangerouslySetInnerHTML={{__html: marked(description)}}/>
     )
 }
+
 function GMapReact({center}) {
     let defaultProps = {
         center: {lat: 35.3641978, lng: 24.4777767},
@@ -73,8 +76,8 @@ class Event extends Component {
             'tags': []
         },
         center: {lat: 35.3641978, lng: 24.4777767},
-        zoom: 11
-
+        zoom: 11,
+        meta: get_default_meta()
     };
 
     componentDidMount() {
@@ -88,7 +91,13 @@ class Event extends Component {
                 data.event.cover = data.event.cover ? data.event.cover : require("assets/img/matzore_logo_192.png");
                 this.setState({
                     event: data.event,
-                    center: {lat: parseFloat(data.event.coordinates[0]), lng: parseFloat(data.event.coordinates[1])}
+                    center: {lat: parseFloat(data.event.coordinates[0]), lng: parseFloat(data.event.coordinates[1])},
+                    meta: get_default_meta({
+                        title: data.event.title,
+                        description: data.event.short_description,
+                        type: 'article',
+                        image: data.event.cover
+                    })
                 });
             })
             .catch(console.log);
@@ -96,7 +105,7 @@ class Event extends Component {
 
     render() {
         return (
-            <>
+            <DocumentMeta {...this.state.meta}>
                 <IndexNavbar/>
                 <IndexHeader/>
                 <div className="section profile-content">
@@ -142,7 +151,7 @@ class Event extends Component {
                     </Container>
                 </div>
                 <IndexFooter/>
-            </>
+            </DocumentMeta>
         )
     }
 }

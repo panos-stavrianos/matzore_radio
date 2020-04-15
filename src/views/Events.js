@@ -4,10 +4,13 @@ import IndexNavbar from "../components/Navbars/IndexNavbar";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
 import EventsGrid from "components/Grids/EventsGrid";
 import IndexFooter from "../components/Footers/IndexFooter";
+import {get_default_meta} from "../default_meta";
+import DocumentMeta from "react-document-meta";
 
 class Events extends Component {
     state = {
-        events: []
+        events: [],
+        meta: get_default_meta()
     };
 
     componentDidMount() {
@@ -19,15 +22,14 @@ class Events extends Component {
 
     render() {
         return (
-            <>
+            <DocumentMeta {...get_default_meta({title: 'Εκδηλώσεις'})}>
                 <IndexNavbar/>
                 <IndexHeader/>
                 <div className="main">
                     <EventsGrid events={this.state.events}/>
                 </div>
                 <IndexFooter/>
-
-            </>
+            </DocumentMeta>
         )
     }
 }
