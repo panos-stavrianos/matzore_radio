@@ -4,13 +4,15 @@ import "assets/css/social_bar.css";
 import IndexNavbar from "../components/Navbars/IndexNavbar";
 import IndexHeader from "./../components/Headers/IndexHeader.js";
 import {Col, Container, Row} from "reactstrap";
+import {default_meta} from "../default_meta";
+import DocumentMeta from "react-document-meta";
 
 
 class AboutUs extends Component {
 
     render() {
         return (
-            <>
+            <DocumentMeta {...default_meta}>
                 <IndexNavbar/>
                 <IndexHeader/>
                 <div className="main">
@@ -87,7 +89,7 @@ class AboutUs extends Component {
                         </Container>
                     </div>
                 </div>
-            </>
+            </DocumentMeta>
         )
     }
 }
