@@ -16,7 +16,7 @@ export function get_default_meta({
                 'og:description': description,
                 'og:image': image,
                 'og:type': type,
-                'og:url': url
+                // 'og:url': url
             },
             charset: 'utf-8',
             name: {
