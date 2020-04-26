@@ -1,11 +1,10 @@
 import React, {Component} from "react";
-import IndexNavbar from "../components/Navbars/IndexNavbar";
-import IndexHeader from "./../components/Headers/IndexHeader.js";
 import IndexFooter from "../components/Footers/IndexFooter";
 import {Col, Container, Row} from "reactstrap";
 import marked from "marked";
 import DocumentMeta from "react-document-meta";
 import {get_default_meta} from "../default_meta";
+import {Link} from "react-router-dom";
 
 function Social({social, link}) {
     switch (social) {
@@ -39,7 +38,7 @@ function MembersList({producers: members}) {
             <div>
                 <h3>Μουσικοί παραγωγοί</h3>
                 {members.map((member, i) => (
-                    <h5 key={i}><a href={'/member/' + member.id}>{member.name}</a></h5>
+                    <h5 key={i}><Link to={'/member/' + member.id}>{member.name}</Link></h5>
                 ))}
             </div>
         );
@@ -84,8 +83,6 @@ class Show extends Component {
     render() {
         return (
             <DocumentMeta {...this.state.meta}>
-                <IndexNavbar/>
-                <IndexHeader/>
                 <div className="section profile-content">
                     <Container>
                         <div className="owner">

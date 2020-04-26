@@ -1,5 +1,6 @@
 import React from "react";
 import {Col, Row} from "reactstrap";
+import {Link} from "react-router-dom";
 
 
 const ShowsGrid = ({shows}) => {
@@ -16,7 +17,7 @@ const ShowsGrid = ({shows}) => {
                 {shows.map((show, i) => (
                     <Col xl="3" md="4" sm="6" xs="12" key={i}>
                         <div className="card">
-                            <a href={'/show/' + show.id}>
+                            <Link to={'/show/' + show.id}>
 
                                 <div className="card-header">
                                     <img
@@ -30,7 +31,7 @@ const ShowsGrid = ({shows}) => {
                                     <h4 className="card-subtitle mb-2 text-muted">{show.name}</h4>
                                     <p className="card-text">{show.short_description}</p>
                                 </div>
-                            </a>
+                            </Link>
                         </div>
                     </Col>
                 ))}

@@ -1,7 +1,4 @@
 import React, {Component} from "react";
-
-import IndexNavbar from "../components/Navbars/IndexNavbar";
-import IndexHeader from "./../components/Headers/IndexHeader.js";
 import EventsGrid from "components/Grids/EventsGrid";
 import IndexFooter from "../components/Footers/IndexFooter";
 import {get_default_meta} from "../default_meta";
@@ -23,8 +20,6 @@ class Events extends Component {
     render() {
         return (
             <DocumentMeta {...get_default_meta({title: 'Εκδηλώσεις'})}>
-                <IndexNavbar/>
-                <IndexHeader/>
                 <div className="main">
                     <EventsGrid events={this.state.events}/>
                 </div>

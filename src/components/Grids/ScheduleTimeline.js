@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 
 const ScheduleTimeline = ({records, day}) => {
@@ -32,8 +33,8 @@ const ScheduleTimeline = ({records, day}) => {
                         <div className="timeline-marker"/>
                         <div className="timeline-content">
                             <h3 className="timeline-title">
-                                <a href={'/show/' + record.show.id}
-                                   title="Δείτε περισσότερα">{record.show.name}</a>
+                                <Link to={'/show/' + record.show.id}
+                                   title="Δείτε περισσότερα">{record.show.name}</Link>
                             </h3>
                             <p>{record.show.short_description}</p>
                         </div>

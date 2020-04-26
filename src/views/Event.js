@@ -1,7 +1,4 @@
 import React, {Component} from "react";
-
-import IndexNavbar from "../components/Navbars/IndexNavbar";
-import IndexHeader from "./../components/Headers/IndexHeader.js";
 import IndexFooter from "../components/Footers/IndexFooter";
 import {Col, Container, Row} from "reactstrap";
 import GoogleMapReact from 'google-map-react';
@@ -9,6 +6,7 @@ import Moment from "react-moment";
 import marked from "marked";
 import {get_default_meta} from "../default_meta";
 import DocumentMeta from "react-document-meta";
+import {Link} from "react-router-dom";
 
 const renderMarkers = (map, maps, lat, lng) => {
     let marker = new maps.Marker({
@@ -54,7 +52,7 @@ function TagsList({tags}) {
             <div><h5>
                 {tags.map((tag, i) => (
                     <span key={i} className="badge badge-primary text-lowercase m-1">
-                        <a className='text-light' href={'/tag/' + tag.id} title="Δείτε περισσότερα">{tag.name}</a>
+                        <Link className='text-light' to={'/tag/' + tag.id} title="Δείτε περισσότερα">{tag.name}</Link>
                     </span>
                 ))}
             </h5></div>
@@ -106,8 +104,6 @@ class Event extends Component {
     render() {
         return (
             <DocumentMeta {...this.state.meta}>
-                <IndexNavbar/>
-                <IndexHeader/>
                 <div className="section profile-content">
                     <Container>
                         <div className="owner">

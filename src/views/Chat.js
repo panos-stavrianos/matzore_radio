@@ -1,7 +1,4 @@
 import React, {Component} from "react";
-
-import IndexNavbar from "../components/Navbars/IndexNavbar";
-import IndexHeader from "./../components/Headers/IndexHeader.js";
 import MediaQuery from 'react-responsive';
 import IndexFooter from "../components/Footers/IndexFooter";
 import {get_default_meta} from "../default_meta";
@@ -12,8 +9,6 @@ class Chat extends Component {
     render() {
         return (
             <DocumentMeta {...get_default_meta({title: 'Chat'})}>
-                <IndexNavbar/>
-                <IndexHeader/>
                 <div className="main">
                     <MediaQuery minDeviceWidth={1224}>
                         <div className='justify-content-center center m-5'>

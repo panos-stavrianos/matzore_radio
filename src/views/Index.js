@@ -1,8 +1,6 @@
 import React from "react";
 import DocumentMeta from 'react-document-meta';
 // core components
-import IndexNavbar from "../components/Navbars/IndexNavbar";
-import IndexHeader from "./../components/Headers/IndexHeader.js";
 import IndexFooter from "./../components/Footers/IndexFooter.js";
 import {get_default_meta} from "../default_meta";
 
@@ -21,8 +19,6 @@ function Index() {
 
     return (
         <DocumentMeta {...get_default_meta()}>
-            <IndexNavbar/>
-            <IndexHeader/>
             {/*<div className="main">*/}
             {/*  <SectionButtons />*/}
             {/*  <SectionNavbars />*/}

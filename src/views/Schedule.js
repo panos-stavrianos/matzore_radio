@@ -1,7 +1,4 @@
 import React, {Component} from "react";
-
-import IndexNavbar from "../components/Navbars/IndexNavbar";
-import IndexHeader from "./../components/Headers/IndexHeader.js";
 import IndexFooter from "../components/Footers/IndexFooter";
 import {Tab, Tabs} from "react-bootstrap";
 import ScheduleTimeline from "../components/Grids/ScheduleTimeline";
@@ -25,8 +22,6 @@ class Schedule extends Component {
     render() {
         return (
             <DocumentMeta {...get_default_meta({title: 'Πρόγραμμα Εκπομπών'})}>
-                <IndexNavbar/>
-                <IndexHeader/>
                 <div className="main">
                     <Container>
                         <Tabs fill defaultActiveKey={new Date().toLocaleString("en-US", {weekday: 'long'})}

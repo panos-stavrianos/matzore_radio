@@ -20,8 +20,9 @@ import React, {Component} from "react";
 // nodejs library that concatenates strings
 import classnames from "classnames";
 // reactstrap components
-import {Collapse, Container, Nav, Navbar, NavbarBrand, NavItem, NavLink} from "reactstrap";
+import {Collapse, Container, Nav, Navbar, NavbarBrand, NavItem} from "reactstrap";
 import {NavDropdown} from 'react-bootstrap';
+import {Link} from "react-router-dom";
 
 function TheNavbar({categories}) {
 
@@ -62,10 +63,13 @@ function TheNavbar({categories}) {
                 <div className="navbar-translate">
                     <NavbarBrand
                         data-placement="bottom"
-                        href="/index"
-                        target="_blank"
-                        title="Coded by Creative Tim">
-                        ΜΑΤΖΟΡΕ FM 89.1
+                        to="/index"
+                        title="Ματζόρε FM 89.1">
+                        <img
+                            alt="Ματζόρε FM 89.1"
+                            className="img-brand img-no-padding img-responsive"
+                            src={require("assets/img/matzore_plain_small.png")}
+                        />
                     </NavbarBrand>
                     <button
                         aria-expanded={navbarCollapse}
@@ -84,37 +88,38 @@ function TheNavbar({categories}) {
                     isOpen={navbarCollapse}>
                     <Nav navbar>
                         <NavItem>
-                            <NavLink href="/">
+                            <Link className="nav-link" to="/">
                                 <p className="">Home</p>
-                            </NavLink>
+                            </Link>
                         </NavItem>
                         <NavDropdown title="Radio" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="/schedule">ΠΡΟΓΡΑΜΜΑ ΕΚΠΟΜΠΩΝ</NavDropdown.Item>
-                            <NavDropdown.Item href="/shows">ΕΚΠΟΜΠΕΣ</NavDropdown.Item>
-                            <NavDropdown.Item href="/members">ΜΕΛΗ</NavDropdown.Item>
+                            <Link className="dropdown-item" to="/schedule">ΠΡΟΓΡΑΜΜΑ ΕΚΠΟΜΠΩΝ</Link>
+                            <Link className="dropdown-item" to="/shows">ΕΚΠΟΜΠΕΣ</Link>
+                            <Link className="dropdown-item" to="/members">ΜΕΛΗ</Link>
                         </NavDropdown>
                         <NavItem>
-                            <NavLink href="/chat">
+                            <Link className="nav-link" to="/chat">
                                 <p className="">CHAT</p>
-                            </NavLink>
+                            </Link>
                         </NavItem>
                         <NavDropdown title="ΑΡΘΡΑ" id="basic-nav-dropdown">
-                            <NavDropdown.Item
-                                href='/articles'>Όλα τα άρθρα</NavDropdown.Item>
+                            <Link className="dropdown-item" to='/articles'>Όλα τα άρθρα</Link>
                             {categories.map((category, i) => (
-                                <NavDropdown.Item key={i}
-                                                  href={'/category/' + category.id}>{category.name}</NavDropdown.Item>
+                                <Link
+                                    className="dropdown-item"
+                                    to={`/articles_category/${category.id}`}>{category.name}
+                                </Link>
                             ))}
                         </NavDropdown>
                         <NavItem>
-                            <NavLink href="/events">
+                            <Link className="nav-link" to="/events">
                                 <p className="">ΕΚΔΗΛΩΣΕΙΣ</p>
-                            </NavLink>
+                            </Link>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="/about_us">
+                            <Link className="nav-link" to="/about_us">
                                 <p className="">ABOUT US</p>
-                            </NavLink>
+                            </Link>
                         </NavItem>
                     </Nav>
                 </Collapse>
@@ -141,7 +146,9 @@ class IndexNavbar extends Component {
 
     render() {
         return (
-            <TheNavbar categories={this.state.categories}/>
+            <>
+                <TheNavbar categories={this.state.categories}/>
+            </>
         )
     }
 }

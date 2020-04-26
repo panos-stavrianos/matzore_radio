@@ -1,18 +1,19 @@
 import React from "react";
 import {Col, Row} from "reactstrap";
+import {Link} from "react-router-dom";
 
 
 const ArticlesGrid = ({articles, category}) => {
     if (articles && articles.length)
         return (
             <div className='m-5 justify-content-center'>
-                <div className='m-4'><h2>{category && category.name ? 'Άρθρα: ' + category.name : "Όλα τα Άρθρα"}</h2></div>
+                <div className='m-4'><h2>{category && category.name ? 'Άρθρα: ' + category.name : "Όλα τα Άρθρα"}</h2>
+                </div>
                 <Row>
                     {articles.map((article, i) => (
                         <Col xl="3" md="4" sm="6" xs="12" key={i}>
                             <div className="card">
-                                <a href={'/article/' + article.id}>
-
+                                <Link to={'/article/' + article.id}>
                                     <div className="card-header">
                                         <img
                                             style={{maxHeight: 200}}
@@ -25,7 +26,7 @@ const ArticlesGrid = ({articles, category}) => {
                                         <h4 className="card-subtitle mb-2 text-muted">{article.title}</h4>
                                         <p className="card-text">{article.short_description}</p>
                                     </div>
-                                </a>
+                                </Link>
                             </div>
                         </Col>
                     ))}

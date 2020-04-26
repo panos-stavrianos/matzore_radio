@@ -1,11 +1,9 @@
 import React, {Component} from "react";
-
-import IndexNavbar from "../components/Navbars/IndexNavbar";
-import IndexHeader from "./../components/Headers/IndexHeader.js";
 import IndexFooter from "../components/Footers/IndexFooter";
 import {Col, Container, Row} from "reactstrap";
 import DocumentMeta from "react-document-meta";
 import {get_default_meta} from "../default_meta";
+import {Link} from "react-router-dom";
 
 function member_title(member) {
     if (member.articles && member.shows && member.articles.length && member.shows.length)
@@ -23,7 +21,7 @@ function ShowsList({shows}) {
             <div>
                 <h3>Εκπομπές</h3>
                 {shows.map((show, i) => (
-                    <h5 key={i}><a href={'/show/' + show.id}>{show.name}</a></h5>
+                    <h5 key={i}><Link to={'/show/' + show.id}>{show.name}</Link></h5>
                 ))}
             </div>
         );
@@ -37,7 +35,7 @@ function ArticlesList({articles}) {
             <div>
                 <h3>Άρθρα</h3>
                 {articles.map((article, i) => (
-                    <h5 key={i}><a href={'/article/' + article.id}>{article.title}</a></h5>
+                    <h5 key={i}><Link to={'/article/' + article.id}>{article.title}</Link></h5>
                 ))}
             </div>
         );
@@ -78,8 +76,6 @@ class Member extends Component {
     render() {
         return (
             <DocumentMeta {...this.state.meta}>
-            <IndexNavbar/>
-                <IndexHeader/>
                 <div className="section profile-content">
                     <Container>
                         <div className="owner">

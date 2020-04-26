@@ -1,7 +1,4 @@
 import React, {Component} from "react";
-
-import IndexNavbar from "../components/Navbars/IndexNavbar";
-import IndexHeader from "./../components/Headers/IndexHeader.js";
 import ShowsGrid from "components/Grids/ShowsGrid";
 import IndexFooter from "../components/Footers/IndexFooter";
 import {get_default_meta} from "../default_meta";
@@ -22,8 +19,6 @@ class Shows extends Component {
     render() {
         return (
             <DocumentMeta {...get_default_meta({title: 'Εκπομπές'})}>
-                <IndexNavbar/>
-                <IndexHeader/>
                 <div className="main">
                     <ShowsGrid shows={this.state.shows}/>
                 </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import {Col, Row} from "reactstrap";
+import {Link} from "react-router-dom";
 
 
 const MembersGrid = ({members}) => {
@@ -16,7 +17,7 @@ const MembersGrid = ({members}) => {
                 {members.map((member, i) => (
                     <Col xl="3" md="4" sm="6" xs="12" key={i}>
                         <div className="card">
-                            <a href={'/member/' + member.id}>
+                            <Link to={'/member/' + member.id}>
                                 <div className="card-header avatar">
                                     <img
                                         style={{height: "170px", width: "170px"}}
@@ -29,7 +30,7 @@ const MembersGrid = ({members}) => {
                                     <h4 className="card-subtitle mb-2 text-muted">{member.name}</h4>
                                     <p className="card-text">{member.bio}</p>
                                 </div>
-                            </a>
+                            </Link>
                         </div>
                     </Col>
                 ))}

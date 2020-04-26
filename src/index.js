@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 // styles
 import "assets/css/bootstrap.min.css";
 import "assets/scss/paper-kit.scss";
@@ -21,28 +21,36 @@ import Article from "./views/Article";
 import Member from "./views/Member";
 import Show from "./views/Show";
 import Tag from "./views/Tag";
-//  others
+import IndexNavbar from "./components/Navbars/IndexNavbar";
+import IndexHeader from "./components/Headers/IndexHeader";
+
 
 ReactDOM.render(
     <BrowserRouter>
-        <Switch>
-            <Route path="/index" render={props => <Index {...props} />}/>
-            <Route path="/chat" render={props => <Chat {...props} />}/>
-            <Route path="/about_us" render={props => <AboutUs {...props} />}/>
-            <Route path="/schedule" render={props => <Schedule {...props} />}/>
-            <Route path="/shows" render={props => <Shows {...props} />}/>
-            <Route path="/show/:id" component={Show}/>
-            <Route path="/members" render={props => <Members {...props} />}/>
-            <Route path="/member/:id" component={Member}/>
-            <Route path="/author/:id" component={Member}/>
-            <Route path="/events" render={props => <Events {...props} />}/>
-            <Route path="/event/:id" component={Event}/>
-            <Route path="/articles" render={props => <Articles {...props} />}/>
-            <Route path="/category/:id" component={Articles}/>
-            <Route path="/article/:id" component={Article}/>
-            <Route path="/tag/:id" component={Tag}/>
-            <Redirect to="/index"/>
-        </Switch>
+        <div>
+            <IndexNavbar/>
+            <IndexHeader/>
+
+            <div className="content">
+                <Switch>
+                    <Route path="/index" render={props => <Index {...props} />}/>
+                    <Route path="/chat" render={props => <Chat {...props} />}/>
+                    <Route path="/about_us" render={props => <AboutUs {...props} />}/>
+                    <Route path="/schedule" render={props => <Schedule {...props} />}/>
+                    <Route path="/shows" render={props => <Shows {...props} />}/>
+                    <Route path='/show/:id' component={(props) => <Show {...props} key={window.location.pathname}/>}/>
+                    <Route path="/members" render={props => <Members {...props} />}/>
+                    <Route path='/member/:id' component={(props) => <Member {...props} key={window.location.pathname}/>}/>
+                    <Route path='/author/:id' component={(props) => <Member {...props} key={window.location.pathname}/>}/>
+                    <Route path="/events" render={props => <Events {...props} />}/>
+                    <Route path='/event/:id' component={(props) => <Event {...props} key={window.location.pathname}/>}/>
+                    <Route path="/articles" render={props => <Articles {...props} />}/>
+                    <Route path='/articles_category/:id' component={(props) => <Articles {...props} key={window.location.pathname}/>}/>
+                    <Route path='/article/:id' component={(props) => <Article {...props} key={window.location.pathname}/>}/>
+                    <Route path='/tag/:id' component={(props) => <Tag {...props} key={window.location.pathname}/>}/>
+                </Switch>
+            </div>
+        </div>
     </BrowserRouter>,
 
     document.getElementById("root")

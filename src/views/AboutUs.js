@@ -13,8 +13,6 @@ class AboutUs extends Component {
     render() {
         return (
             <DocumentMeta {...get_default_meta({title: 'AboutUs'})}>
-                <IndexNavbar/>
-                <IndexHeader/>
                 <div className="main">
                     <div className="section text-center">
                         <Container>

@@ -8,6 +8,7 @@ import Moment from "react-moment";
 import marked from 'marked'
 import DocumentMeta from "react-document-meta";
 import {get_default_meta} from "../default_meta";
+import {Link} from "react-router-dom";
 
 function DescriptionMD({description}) {
     return (
@@ -20,12 +21,12 @@ function TagsList({tags, category}) {
         return (
             <div><h4>
                 <span className="badge badge-default m-1">
-                    <a className='text-light' style={{fontWeight: 'bold'}}
-                       href={'/category/' + category.id}>{category.name}</a>
+                    <Link className='text-light' style={{fontWeight: 'bold'}}
+                       to={'/articles_category/' + category.id}>{category.name}</Link>
                 </span>
                 {tags.map((tag, i) => (
                     <span key={i} className="badge badge-primary m-1">
-                        <a className='text-light' href={'/tag/' + tag.id} title="Δείτε περισσότερα">{tag.name}</a>
+                        <Link className='text-light' to={'/tag/' + tag.id} title="Δείτε περισσότερα">{tag.name}</Link>
                     </span>
                 ))}
             </h4></div>
@@ -40,7 +41,7 @@ function AuthorsList({authors}) {
             <>
                 {authors.map((author, i) => (
                     <span className="badge badge-dark m-1" key={i}>
-                        <a style={{fontWeight: 'bold'}} href={'/author/' + author.id}>{author.name}</a></span>
+                        <Link style={{fontWeight: 'bold'}} to={'/author/' + author.id}>{author.name}</Link></span>
                 ))}
             </>
         );
@@ -86,8 +87,6 @@ class Article extends Component {
     render() {
         return (
             <DocumentMeta {...this.state.meta}>
-                <IndexNavbar/>
-                <IndexHeader/>
                 <div className="section profile-content">
                     <Container>
                         <div className="owner">

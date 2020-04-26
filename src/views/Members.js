@@ -1,7 +1,4 @@
 import React, {Component} from "react";
-
-import IndexNavbar from "../components/Navbars/IndexNavbar";
-import IndexHeader from "./../components/Headers/IndexHeader.js";
 import IndexFooter from "../components/Footers/IndexFooter";
 import MembersGrid from "../components/Grids/MembersGrid";
 import {get_default_meta} from "../default_meta";
@@ -23,8 +20,6 @@ class Members extends Component {
     render() {
         return (
             <DocumentMeta {...get_default_meta({title: 'Μέλη'})}>
-                <IndexNavbar/>
-                <IndexHeader/>
                 <div className="main">
                     <MembersGrid members={this.state.members}/>
                 </div>

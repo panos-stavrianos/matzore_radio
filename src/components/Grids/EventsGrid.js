@@ -1,5 +1,6 @@
 import React from "react";
 import {Col, Row} from "reactstrap";
+import {Link} from "react-router-dom";
 
 
 const EventsGrid = ({events}) => {
@@ -16,7 +17,7 @@ const EventsGrid = ({events}) => {
                 {events.map((event, i) => (
                     <Col xl="3" md="4" sm="6" xs="12" key={i}>
                         <div className="card">
-                            <a href={'/event/' + event.id}>
+                            <Link to={'/event/' + event.id}>
                                 <div className="card-header">
                                     <img
                                         style={{maxHeight: 200}}
@@ -29,7 +30,7 @@ const EventsGrid = ({events}) => {
                                     <h4 className="card-subtitle mb-2 text-muted">{event.title}</h4>
                                     <p className="card-text">{event.short_description}</p>
                                 </div>
-                            </a>
+                            </Link>
                         </div>
                     </Col>
                 ))}

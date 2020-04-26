@@ -1,10 +1,7 @@
 import React, {Component} from "react";
-
-import IndexHeader from "./../components/Headers/IndexHeader.js";
 import IndexFooter from "../components/Footers/IndexFooter";
 import ArticlesGrid from "../components/Grids/ArticlesGrid";
 import EventsGrid from "../components/Grids/EventsGrid";
-import IndexNavbar from "../components/Navbars/IndexNavbar";
 import DocumentMeta from "react-document-meta";
 import {get_default_meta} from "../default_meta";
 
@@ -27,8 +24,6 @@ class Tag extends Component {
     render() {
         return (
             <DocumentMeta {...get_default_meta({title: 'Tag'})}>
-                <IndexNavbar/>
-                <IndexHeader/>
                 <div className="main">
                     <ArticlesGrid articles={this.state.articles}/>
                     <EventsGrid events={this.state.events}/>
