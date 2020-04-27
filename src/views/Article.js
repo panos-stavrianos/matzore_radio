@@ -1,7 +1,4 @@
 import React, {Component} from "react";
-
-import IndexNavbar from "../components/Navbars/IndexNavbar";
-import IndexHeader from "./../components/Headers/IndexHeader.js";
 import IndexFooter from "../components/Footers/IndexFooter";
 import {Col, Container, Row} from "reactstrap";
 import Moment from "react-moment";
@@ -22,7 +19,7 @@ function TagsList({tags, category}) {
             <div><h4>
                 <span className="badge badge-default m-1">
                     <Link className='text-light' style={{fontWeight: 'bold'}}
-                       to={'/articles_category/' + category.id}>{category.name}</Link>
+                          to={'/articles_category/' + category.id}>{category.name}</Link>
                 </span>
                 {tags.map((tag, i) => (
                     <span key={i} className="badge badge-primary m-1">
@@ -78,6 +75,7 @@ class Article extends Component {
                     image: data.article.cover
                 })
                 this.setState(data);
+                window.dispatchEvent(new CustomEvent('new_page'))
                 console.log(this.state)
             })
             .catch(console.log);

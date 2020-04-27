@@ -23,17 +23,50 @@ import classnames from "classnames";
 import {Collapse, Container, Nav, Navbar, NavbarBrand, NavItem} from "reactstrap";
 import {NavDropdown} from 'react-bootstrap';
 import {Link} from "react-router-dom";
+import $ from 'jquery';
 
 function TheNavbar({categories}) {
 
     const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
-    const [navbarCollapse, setNavbarCollapse] = React.useState(false);
+    const [navbarIsClosed, setNavbarClosed] = React.useState(true);
+    const toggleNavbar = () => {
+        if (navbarIsClosed)
+            openNavbar()
+        else
+            closeNavbar()
 
-    const toggleNavbarCollapse = () => {
-        setNavbarCollapse(!navbarCollapse);
-        document.documentElement.classList.toggle("nav-open");
+    };
+    const openNavbar = () => {
+        if (navbarIsClosed) {
+            setNavbarClosed(false);
+            document.documentElement.classList.add("nav-open");
+            console.log(navbarIsClosed)
+        }
+    };
+    const closeNavbar = () => {
+        if (!navbarIsClosed) {
+            setNavbarClosed(true);
+            document.documentElement.classList.remove("nav-open");
+        }
+
     };
 
+
+    const scroll_to_main = () => {
+
+        // window.scrollTo({top: 0});
+        // window.scrollTo({top: y, behavior: 'smooth'});
+
+        if (window.location.pathname === "/" || window.location.pathname === "/index") {
+            console.log("SSSS index")
+            window.scrollTo({top: 0});
+        } else {
+            $('html, body').animate({
+                scrollTop: $("#content_s").offset().top - 112
+            }, 1000);
+        }
+
+    };
     React.useEffect(() => {
         const updateNavbarColor = () => {
             if (
@@ -48,13 +81,18 @@ function TheNavbar({categories}) {
                 setNavbarColor("navbar-transparent");
             }
         };
-
+        window.addEventListener("new_page", closeNavbar);
+        window.addEventListener("new_page", scroll_to_main);
         window.addEventListener("scroll", updateNavbarColor);
 
         return function cleanup() {
             window.removeEventListener("scroll", updateNavbarColor);
+            window.removeEventListener("new_page", closeNavbar);
+            window.removeEventListener("new_page", scroll_to_main);
         };
+
     });
+
     if (!categories && !categories.length)
         return (<>Test</>);
     return (
@@ -72,11 +110,11 @@ function TheNavbar({categories}) {
                         />
                     </NavbarBrand>
                     <button
-                        aria-expanded={navbarCollapse}
+                        aria-expanded={navbarIsClosed}
                         className={classnames("navbar-toggler navbar-toggler", {
-                            toggled: navbarCollapse
+                            toggled: !navbarIsClosed
                         })}
-                        onClick={toggleNavbarCollapse}>
+                        onClick={toggleNavbar}>
                         <span className="navbar-toggler-bar bar1"/>
                         <span className="navbar-toggler-bar bar2"/>
                         <span className="navbar-toggler-bar bar3"/>
@@ -85,7 +123,7 @@ function TheNavbar({categories}) {
                 <Collapse
                     className="justify-content-end"
                     navbar
-                    isOpen={navbarCollapse}>
+                    isOpen={navbarIsClosed}>
                     <Nav navbar>
                         <NavItem>
                             <Link className="nav-link" to="/">
@@ -106,7 +144,7 @@ function TheNavbar({categories}) {
                             <Link className="dropdown-item" to='/articles'>Όλα τα άρθρα</Link>
                             {categories.map((category, i) => (
                                 <Link
-                                    className="dropdown-item"
+                                    className="dropdown-item" key={i}
                                     to={`/articles_category/${category.id}`}>{category.name}
                                 </Link>
                             ))}
@@ -132,6 +170,7 @@ class IndexNavbar extends Component {
     state = {
         categories: [{'id': 0, 'name': ""}],
     };
+
 
     componentDidMount() {
         fetch('https://matzore-shows.herokuapp.com/api/get_categories')

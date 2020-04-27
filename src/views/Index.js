@@ -1,42 +1,17 @@
-import React from "react";
-import DocumentMeta from 'react-document-meta';
-// core components
-import IndexFooter from "./../components/Footers/IndexFooter.js";
+import React, {Component} from "react";
+import IndexFooter from "../components/Footers/IndexFooter";
 import {get_default_meta} from "../default_meta";
+import DocumentMeta from "react-document-meta";
 
-// reactstrap components
-
-// index sections
-
-function Index() {
-    document.documentElement.classList.remove("nav-open");
-    React.useEffect(() => {
-        document.body.classList.add("index");
-        return function cleanup() {
-            document.body.classList.remove("index");
-        };
-    });
-
-    return (
-        <DocumentMeta {...get_default_meta()}>
-            {/*<div className="main">*/}
-            {/*  <SectionButtons />*/}
-            {/*  <SectionNavbars />*/}
-            {/*  <SectionNavigation />*/}
-            {/*  <SectionProgress />*/}
-            {/*  <SectionNotifications />*/}
-            {/*  <SectionTypography />*/}
-            {/*  <SectionJavaScript />*/}
-            {/*  <SectionCarousel />*/}
-            {/*  <SectionNucleoIcons />*/}
-            {/*  <SectionDark />*/}
-            {/*  <SectionLogin />*/}
-            {/*  <SectionExamples />*/}
-            {/*  <SectionDownload />*/}
-            <IndexFooter/>
-            {/*</div>*/}
-        </DocumentMeta>
-    );
+class Index extends Component {
+    render() {
+        return (
+            <DocumentMeta {...get_default_meta()}>
+                {window.dispatchEvent(new CustomEvent('new_page'))}
+                <IndexFooter/>
+            </DocumentMeta>
+        )
+    }
 }
 
 export default Index;

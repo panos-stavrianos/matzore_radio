@@ -97,6 +97,7 @@ class Event extends Component {
                         image: data.event.cover
                     })
                 });
+                window.dispatchEvent(new CustomEvent('new_page'))
             })
             .catch(console.log);
     }

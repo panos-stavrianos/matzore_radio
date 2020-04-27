@@ -13,13 +13,16 @@ class Events extends Component {
     componentDidMount() {
         fetch('https://matzore-shows.herokuapp.com/api/get_events')
             .then(res => res.json())
-            .then((data) => this.setState(data))
+            .then((data) => {
+                this.setState(data);
+            })
             .catch(console.log);
     }
 
     render() {
         return (
             <DocumentMeta {...get_default_meta({title: 'Εκδηλώσεις'})}>
+                {window.dispatchEvent(new CustomEvent('new_page'))}
                 <div className="main">
                     <EventsGrid events={this.state.events}/>
                 </div>

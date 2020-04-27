@@ -24,6 +24,7 @@ class Articles extends Component {
     render() {
         return (
             <DocumentMeta {...get_default_meta({title: 'Άρθρα'})}>
+                {window.dispatchEvent(new CustomEvent('new_page'))}
                 <div className="main">
                     <ArticlesGrid articles={this.state.articles} category={this.state.category}/>
                 </div>

@@ -80,7 +80,11 @@ a.btn2:hover {
     top: -10%;
     left: -10%;
 }
-
+.btn2 .fa{
+    position: relative;
+    bottom: 0;
+    right: 0;
+}
 @keyframes aaa {
     0% {
         left: -110%;

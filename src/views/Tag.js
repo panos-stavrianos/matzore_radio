@@ -17,6 +17,7 @@ class Tag extends Component {
             .then(res => res.json())
             .then((data) => {
                 this.setState(data);
+                window.dispatchEvent(new CustomEvent('new_page'))
             })
             .catch(console.log);
     }

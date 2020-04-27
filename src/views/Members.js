@@ -13,13 +13,16 @@ class Members extends Component {
     componentDidMount() {
         fetch('https://matzore-shows.herokuapp.com/api/get_members')
             .then(res => res.json())
-            .then((data) => this.setState(data))
+            .then((data) => {
+                this.setState(data);
+            })
             .catch(console.log);
     }
 
     render() {
         return (
             <DocumentMeta {...get_default_meta({title: 'Μέλη'})}>
+                {window.dispatchEvent(new CustomEvent('new_page'))}
                 <div className="main">
                     <MembersGrid members={this.state.members}/>
                 </div>

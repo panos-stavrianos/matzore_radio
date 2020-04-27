@@ -76,6 +76,7 @@ class Show extends Component {
                     image: data.show.logo
                 })
                 this.setState(data);
+                window.dispatchEvent(new CustomEvent('new_page'))
             })
             .catch(console.log);
     }

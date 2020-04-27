@@ -68,6 +68,7 @@ class Member extends Component {
                     image: data.member.avatar
                 })
                 this.setState(data);
+                window.dispatchEvent(new CustomEvent('new_page'))
             })
             .catch(console.log);
     }

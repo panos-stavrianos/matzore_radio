@@ -1,8 +1,5 @@
 import React, {Component} from "react";
 import "assets/css/social_bar.css";
-
-import IndexNavbar from "../components/Navbars/IndexNavbar";
-import IndexHeader from "./../components/Headers/IndexHeader.js";
 import {Col, Container, Row} from "reactstrap";
 import {get_default_meta} from "../default_meta";
 import DocumentMeta from "react-document-meta";
@@ -13,6 +10,7 @@ class AboutUs extends Component {
     render() {
         return (
             <DocumentMeta {...get_default_meta({title: 'AboutUs'})}>
+                {window.dispatchEvent(new CustomEvent('new_page'))}
                 <div className="main">
                     <div className="section text-center">
                         <Container>
@@ -72,15 +70,6 @@ class AboutUs extends Component {
                                         <a className="btn2" href="https://www.instagram.com/89.1matzore/">
                                             <i className="fa fa-instagram"/>
                                         </a>
-                                        {/*<a className="btn2" href="https://facebook.com">*/}
-                                        {/*    <i className="fa fa-twitter"/>*/}
-                                        {/*</a>*/}
-                                        {/*<a className="btn2" href="https://facebook.com">*/}
-                                        {/*    <i className="fa fa-google"/>*/}
-                                        {/*</a>*/}
-                                        {/*<a className="btn2" href="https://facebook.com">*/}
-                                        {/*    <i className="fa fa-youtube"/>*/}
-                                        {/*</a>*/}
                                     </div>
                                 </div>
                             </Row>

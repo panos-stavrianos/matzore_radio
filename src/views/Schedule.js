@@ -15,13 +15,16 @@ class Schedule extends Component {
     componentDidMount() {
         fetch('https://matzore-shows.herokuapp.com/api/get_schedule')
             .then(res => res.json())
-            .then((data) => this.setState(data))
+            .then((data) => {
+                this.setState(data);
+            })
             .catch(console.log);
     }
 
     render() {
         return (
             <DocumentMeta {...get_default_meta({title: 'Πρόγραμμα Εκπομπών'})}>
+                {window.dispatchEvent(new CustomEvent('new_page'))}
                 <div className="main">
                     <Container>
                         <Tabs fill defaultActiveKey={new Date().toLocaleString("en-US", {weekday: 'long'})}
