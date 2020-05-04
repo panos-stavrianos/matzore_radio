@@ -20,6 +20,9 @@ jobs:
           npm run install:clean
           cd build
           zip -r ../build.zip .
+          ls
+          cd ..
+          ls
         env:
           CI: false
       - name: Checkout code
