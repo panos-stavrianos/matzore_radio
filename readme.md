@@ -13,14 +13,14 @@ npm start
 
 ## Alternatively use a prebuild release
 
-You can download from the latest release the build.zip
+You can download from the [latest release](https://github.com/panos-stavrianos/matzore_radio/releases/latest) the build.zip.
+Then extract the zip file in the desired folder
 
 ```
 # cd to the folder you want to host the files
-wget https://github.com/panos-stavrianos/matzore_radio/releases/download/Latest/build.zip
+# download the 
 uzip build.zip
 unzip build.zip 'build/*' 
-
 ```
 
 ### NGINX 
