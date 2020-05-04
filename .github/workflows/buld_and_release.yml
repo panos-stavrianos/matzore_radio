@@ -25,6 +25,9 @@ jobs:
           ls
         env:
           CI: false
+      - name: Debug
+        run: |
+          ls
       - name: Checkout code
         uses: actions/checkout@master
       - name: Create Release
