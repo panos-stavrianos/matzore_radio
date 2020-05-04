@@ -1,6 +1,6 @@
 {
   "name": "matzore_radio",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "dependencies": {
     "autobahn": "^20.2.1",
