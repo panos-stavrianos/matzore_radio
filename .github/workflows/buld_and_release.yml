@@ -18,14 +18,12 @@ jobs:
       - name: Build
         run: |
           npm run install:clean
+          cd build
+          zip -r build.zip .
         env:
           CI: false
       - name: Checkout code
         uses: actions/checkout@master
-      - name: Build project # This would actually build your project, using zip for an example artifact
-        run: |
-          cd build
-          zip -r build.zip .
       - name: Create Release
         id: create_release
         uses: actions/create-release@latest
