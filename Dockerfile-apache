@@ -25,6 +25,5 @@ RUN a2ensite default-apache.conf
 COPY --from=builder /usr/src/app/build /var/www/html
 
 EXPOSE 80
-HEALTHCHECK --interval=5s --timeout=3s --retries=3 CMD curl -f http://localhost || exit 1
 ENTRYPOINT ["apache2ctl"]
 CMD ["-DFOREGROUND"]
