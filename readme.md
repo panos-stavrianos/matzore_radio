@@ -82,6 +82,4 @@ RewriteRule . /$1 [L]
 
 </Directory>
 ```
-
-
-
+ 
