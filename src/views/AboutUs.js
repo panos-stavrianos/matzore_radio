@@ -3,7 +3,36 @@ import "assets/css/social_bar.css";
 import {Col, Container, Row} from "reactstrap";
 import {get_default_meta} from "../default_meta";
 import DocumentMeta from "react-document-meta";
+import GoogleMapReact from "google-map-react";
 
+const renderMarkers = (map, maps, lat, lng) => {
+    let marker = new maps.Marker({
+        position: {lat: lat, lng: lng},
+        map,
+        title: ''
+    });
+    return marker;
+};
+
+function GMapReact() {
+    let defaultProps = {
+        center: {lat: 35.352044, lng: 24.449913},
+        zoom: 16,
+    };
+
+    return (
+        <div style={{height: '35vh', width: '100%'}}>
+            <GoogleMapReact
+                bootstrapURLKeys={{key: 'AIzaSyBWGv5gzLoXbCnknnoa0V0MOMfBwcUtpik'}}
+                defaultCenter={defaultProps.center}
+                defaultZoom={defaultProps.zoom}
+                center={defaultProps.center}
+                yesIWantToUseGoogleMapApiInternals
+                onGoogleApiLoaded={({map, maps}) => renderMarkers(map, maps, defaultProps.center.lat, defaultProps.center.lng)}>
+            </GoogleMapReact>
+        </div>
+    )
+}
 
 class AboutUs extends Component {
 
@@ -52,6 +81,9 @@ class AboutUs extends Component {
                                         <h6>ΔΙΕΥΘΥΝΣΗ</h6>
                                         <span>Πανεπιστημιούπολη Ρεθύμνου, έναντι γραφείων μέριμνας</span>
                                         <br/> <br/>
+                                        <div style={{width: "100%", height: "100%"}}>
+                                            <GMapReact/>
+                                        </div>
                                         <h6>ΕΠΙΚΟΙΝΩΝΙΑ</h6>
                                         <span className="">studio: &nbsp;</span>
                                         <span className="text-muted subscribe-line">2831077777</span>

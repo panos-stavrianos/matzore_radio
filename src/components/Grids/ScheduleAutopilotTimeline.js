@@ -1,16 +1,14 @@
 import React from "react";
-import {Link} from "react-router-dom";
 
 
-const ScheduleTimeline = ({records}) => {
+const ScheduleAutopilotTimeline = ({records}) => {
     if (!records || records.length === 0) {
         return (
             <div className='m-5 justify-content-center'>
-                <h4 className='m-4'>Δεν υπάρχει πρόγραμμα εκπομπών</h4>
+                <h4 className='m-4'>Δεν υπάρχει πρόγραμμα auto-pilot</h4>
             </div>
         );
     }
-
 
     return (
         <div className='m-5 justify-content-center'>
@@ -18,15 +16,14 @@ const ScheduleTimeline = ({records}) => {
                 {records.map((record, i) => (
                     <li className="timeline-item" key={i}>
                         <div className="timeline-info">
-                            <span>{record.from_time + " - " + record.to_time}</span>
+                            <span>{record.from_time}</span>
                         </div>
                         <div className="timeline-marker"/>
                         <div className="timeline-content">
                             <h3 className="timeline-title">
-                                <Link to={'/show/' + record.show.id}
-                                      title="Δείτε περισσότερα">{record.show.name}</Link>
+                                {record.name}
                             </h3>
-                            <p>{record.show.short_description}</p>
+                            {/*<p>{record.show.short_description}</p>*/}
                         </div>
                     </li>
                 ))}
@@ -35,7 +32,7 @@ const ScheduleTimeline = ({records}) => {
     )
 };
 
-export default ScheduleTimeline
+export default ScheduleAutopilotTimeline
 
 
 

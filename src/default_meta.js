@@ -7,7 +7,6 @@ export function get_default_meta({
                                      keywords = 'Ματζόρε,matzore,radio,radio station,rethymno,uoc,ρέθυμνο,φοιτητικός σταθμός,Πανεπιστημίου Κρήτης'
                                  } = {}
 ) {
-    console.log(window.location.protocol)
     return {
         title: title,
         description: description,

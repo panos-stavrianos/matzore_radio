@@ -46,6 +46,21 @@ function MembersList({producers: members}) {
         return (<br/>)
 }
 
+function ScheduledList({hours}) {
+    if (hours && hours.length) {
+        return (
+            <div>
+                <h3>Πρόγραμμα</h3>
+                {hours.map((schedule, i) => (
+                    <h5 style={{color: '#3f96ac'}}
+                        key={i}>{schedule.day_name[1]}: {schedule.from_time} - {schedule.to_time}  </h5>
+                ))}
+            </div>
+        );
+    } else
+        return (<br/>)
+}
+
 
 class Show extends Component {
     state = {
@@ -58,6 +73,7 @@ class Show extends Component {
             'twitter': '',
             'logo': require("assets/img/matzore_logo_192.png"),
             'members': [],
+            'scheduled': [],
         },
         meta: get_default_meta()
     };
@@ -113,7 +129,12 @@ class Show extends Component {
                         </Row>
                         <Row>
                             <Col className="ml-auto mr-auto text-center">
-                                <MembersList members={this.state.show.members}/>
+                                <MembersList producers={this.state.show.members}/>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col className="ml-auto mr-auto text-center">
+                                <ScheduledList hours={this.state.show.scheduled}/>
                             </Col>
                         </Row>
                         <br/>

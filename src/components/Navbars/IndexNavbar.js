@@ -26,8 +26,10 @@ import {Link} from "react-router-dom";
 import $ from 'jquery';
 
 function TheNavbar({categories}) {
-
+    const white_logo = require("assets/img/matzore_logo_white.png")
+    const black_logo = require("assets/img/matzore_logo_black.png")
     const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
+    const [logo, setLogo] = React.useState(white_logo);
     const [navbarIsClosed, setNavbarClosed] = React.useState(true);
     const toggleNavbar = () => {
         if (navbarIsClosed)
@@ -40,7 +42,6 @@ function TheNavbar({categories}) {
         if (navbarIsClosed) {
             setNavbarClosed(false);
             document.documentElement.classList.add("nav-open");
-            console.log(navbarIsClosed)
         }
     };
     const closeNavbar = () => {
@@ -48,17 +49,11 @@ function TheNavbar({categories}) {
             setNavbarClosed(true);
             document.documentElement.classList.remove("nav-open");
         }
-
     };
 
 
     const scroll_to_main = () => {
-
-        // window.scrollTo({top: 0});
-        // window.scrollTo({top: y, behavior: 'smooth'});
-
         if (window.location.pathname === "/" || window.location.pathname === "/index") {
-            console.log("SSSS index")
             window.scrollTo({top: 0});
         } else {
             $('html, body').animate({
@@ -74,11 +69,13 @@ function TheNavbar({categories}) {
                 document.body.scrollTop > 299
             ) {
                 setNavbarColor("");
+                setLogo(black_logo)
             } else if (
                 document.documentElement.scrollTop < 300 ||
                 document.body.scrollTop < 300
             ) {
                 setNavbarColor("navbar-transparent");
+                setLogo(white_logo)
             }
         };
         window.addEventListener("new_page", closeNavbar);
@@ -99,14 +96,13 @@ function TheNavbar({categories}) {
         <Navbar className={classnames("fixed-top", navbarColor)} expand="lg">
             <Container>
                 <div className="navbar-translate">
-                    <NavbarBrand
-                        data-placement="bottom"
-                        to="/index"
-                        title="Ματζόρε FM 89.1">
+                    <NavbarBrand tag={Link} to={'/'}
+                                 data-placement="bottom"
+                                 title="Ματζόρε FM 89.1">
                         <img
                             alt="Ματζόρε FM 89.1"
                             className="img-brand img-no-padding img-responsive"
-                            src={require("assets/img/matzore_plain_small.png")}
+                            src={logo}
                         />
                     </NavbarBrand>
                     <button
@@ -121,6 +117,7 @@ function TheNavbar({categories}) {
                     </button>
                 </div>
                 <Collapse
+                    id="collapse_menu"
                     className="justify-content-end"
                     navbar
                     isOpen={navbarIsClosed}>
@@ -132,6 +129,7 @@ function TheNavbar({categories}) {
                         </NavItem>
                         <NavDropdown title="Radio" id="basic-nav-dropdown">
                             <Link className="dropdown-item" to="/schedule">ΠΡΟΓΡΑΜΜΑ ΕΚΠΟΜΠΩΝ</Link>
+                            <Link className="dropdown-item" to="/schedule_autopilot">ΠΡΟΓΡΑΜΜΑ AUTO-PILOT</Link>
                             <Link className="dropdown-item" to="/shows">ΕΚΠΟΜΠΕΣ</Link>
                             <Link className="dropdown-item" to="/members">ΜΕΛΗ</Link>
                         </NavDropdown>
@@ -141,7 +139,7 @@ function TheNavbar({categories}) {
                             </Link>
                         </NavItem>
                         <NavDropdown title="ΑΡΘΡΑ" id="basic-nav-dropdown">
-                            <Link className="dropdown-item" to='/articles'>Όλα τα άρθρα</Link>
+                            <Link className="dropdown-item" to='/articles'>ΟΛΑ ΤΑ ΑΡΘΡΑ</Link>
                             {categories.map((category, i) => (
                                 <Link
                                     className="dropdown-item" key={i}

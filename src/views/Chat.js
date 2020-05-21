@@ -8,8 +8,7 @@ import DocumentMeta from "react-document-meta";
 function ChatBox({style}) {
     return (
         <>
-            <div id="tlkio" data-channel="c1bdac" style={style}/>
-
+            <div id="tlkio" data-channel="matzore" style={{width: '100%', height: '400px'}}/>
         </>
     );
 }
@@ -17,8 +16,6 @@ function ChatBox({style}) {
 
 class Chat extends Component {
     componentDidMount() {
-        console.log("VHAT")
-        console.log(document.getElementById("tlkio"))
         dispatchEvent(new Event('load'));
     }
 
@@ -32,16 +29,13 @@ class Chat extends Component {
                             <div className='card col-lg-10 border-danger'>
                                 <div className='card-body border-danger'>
                                     <ChatBox style={{height: '600px', width: "100%"}}/>
-                                    {/*<LoadChat />*/}
                                 </div>
                             </div>
                         </div>
                     </MediaQuery>
                     <MediaQuery maxDeviceWidth={1224}>
                         <div className='justify-content-center center'>
-                            <ChatBox style={{height: '600px', width: "100%"}}/>
-                            {/*<LoadChat />*/}
-
+                            {/*<ChatBox style={{height: '600px', width: "100%"}}/>*/}
                         </div>
                     </MediaQuery>
                 </div>

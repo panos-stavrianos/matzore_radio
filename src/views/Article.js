@@ -76,7 +76,6 @@ class Article extends Component {
                 })
                 this.setState(data);
                 window.dispatchEvent(new CustomEvent('new_page'))
-                console.log(this.state)
             })
             .catch(console.log);
     }

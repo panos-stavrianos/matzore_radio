@@ -12,7 +12,6 @@ class Articles extends Component {
 
     componentDidMount() {
         const params = this.props.match.params;
-        console.log(params)
         fetch((params.id ? 'https://matzore-shows.herokuapp.com/api/get_category/' + params.id : 'https://matzore-shows.herokuapp.com/api/get_articles'))
             .then(res => res.json())
             .then((data) => {

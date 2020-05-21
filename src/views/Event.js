@@ -12,14 +12,13 @@ const renderMarkers = (map, maps, lat, lng) => {
     let marker = new maps.Marker({
         position: {lat: lat, lng: lng},
         map,
-        title: 'Hello World!'
+        title: ''
     });
     return marker;
 };
 
 
 function DescriptionMD({description}) {
-    console.log(description)
     return (
         <p dangerouslySetInnerHTML={{__html: marked(description)}}/>
     )
@@ -85,7 +84,6 @@ class Event extends Component {
                 return res.json();
             })
             .then((data) => {
-                console.log(data);
                 data.event.cover = data.event.cover ? data.event.cover : require("assets/img/matzore_logo_192.png");
                 this.setState({
                     event: data.event,

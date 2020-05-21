@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import $ from 'jquery';
-import {soundManager} from "soundmanager2"
+import {soundManager} from "soundmanager2/script/soundmanager2-nodebug-jsmin"
 import autobahn from "autobahn"
 import "./../assets/css/radio_player.css"
 

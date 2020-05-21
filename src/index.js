@@ -23,6 +23,7 @@ import Tag from "./views/Tag";
 import IndexNavbar from "./components/Navbars/IndexNavbar";
 import IndexHeader from "./components/Headers/IndexHeader";
 import Index from "./views/Index";
+import ScheduleAutopilot from "./views/ScheduleAutopilot";
 
 
 ReactDOM.render(
@@ -38,6 +39,7 @@ ReactDOM.render(
                     <Route path="/chat" render={props => <Chat {...props} />}/>
                     <Route path="/about_us" render={props => <AboutUs {...props} />}/>
                     <Route path="/schedule" render={props => <Schedule {...props} />}/>
+                    <Route path="/schedule_autopilot" render={props => <ScheduleAutopilot {...props} />}/>
                     <Route path="/shows" render={props => <Shows {...props} />}/>
                     <Route path="/events" render={props => <Events {...props} />}/>
                     <Route path="/members" render={props => <Members {...props} />}/>
