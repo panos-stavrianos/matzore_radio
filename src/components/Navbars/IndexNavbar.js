@@ -134,9 +134,12 @@ function TheNavbar({categories}) {
                             <Link className="dropdown-item" to="/members">ΜΕΛΗ</Link>
                         </NavDropdown>
                         <NavItem>
-                            <Link className="nav-link" to="/chat">
-                                <p className="">CHAT</p>
-                            </Link>
+                            {/*<Link className="nav-link" to="/chat">*/}
+                            {/*    <p className="">CHAT</p>*/}
+                            {/*</Link>*/}
+                            <a className="nav-link" href='https://tlk.io/matzore' target="_blank"><p
+                                className="">CHAT</p></a>
+
                         </NavItem>
                         <NavDropdown title="ΑΡΘΡΑ" id="basic-nav-dropdown">
                             <Link className="dropdown-item" to='/articles'>ΟΛΑ ΤΑ ΑΡΘΡΑ</Link>
