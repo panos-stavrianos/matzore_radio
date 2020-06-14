@@ -37,7 +37,7 @@ ReactDOM.render(
                            component={(props) => <Index {...props} key={window.location.pathname}/>}/>
                     <Route path='/index' component={(props) => <Index {...props} key={window.location.pathname}/>}/>
                     <Route path='/chat' component={(props) => <Index {...props} key={window.location.pathname}/>}/>
-                    {/*<Route path="/chat" render={props => <Chat {...props} />}/>*/}
+                    {/*<Route path="/chat" render={props =>  <Chat {...props} />}/>*/}
                     <Route path="/about_us" render={props => <AboutUs {...props} />}/>
                     <Route path="/schedule" render={props => <Schedule {...props} />}/>
                     <Route path="/schedule_autopilot" render={props => <ScheduleAutopilot {...props} />}/>
