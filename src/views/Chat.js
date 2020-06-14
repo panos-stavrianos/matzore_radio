@@ -28,14 +28,14 @@ class Chat extends Component {
                         <div className='justify-content-center center m-5'>
                             <div className='card col-lg-10 border-danger'>
                                 <div className='card-body border-danger'>
-                                    {/*<ChatBox style={{height: '600px', width: "100%"}}/>*/}
+                                    <ChatBox style={{height: '600px', width: "100%"}}/>
                                 </div>
                             </div>
                         </div>
                     </MediaQuery>
                     <MediaQuery maxDeviceWidth={1224}>
                         <div className='justify-content-center center'>
-                            {/*<ChatBox style={{height: '600px', width: "100%"}}/>*/}
+                            <ChatBox style={{height: '600px', width: "100%"}}/>
                         </div>
                     </MediaQuery>
                 </div>
