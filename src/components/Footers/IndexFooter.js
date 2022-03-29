@@ -19,7 +19,7 @@ function IndexFooter() {
                                 <span className="text-muted subscribe-line">2831077777</span>
                                 <br/>
                                 <span className="">email: &nbsp;</span>
-                                <span className="text-muted subscribe-line">matzore89.1@outlook.com</span>
+                                <span className="text-muted subscribe-line">matzore@uoc.gr</span>
                             </div>
                         </div>
 
