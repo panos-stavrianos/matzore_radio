@@ -32,3 +32,4 @@ yarn-error.log*
 /.idea/vcs.xml
 /.idea/watcherTasks.xml
 /.idea/webResources.xml
+/.idea/codeStyles/codeStyleConfig.xml
