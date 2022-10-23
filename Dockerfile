@@ -1,3 +1,12 @@
+FROM node:12.16.2 as builder
+RUN mkdir /usr/src/app
+WORKDIR /usr/src/app
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
+COPY . /usr/src/app
+
+RUN npm run install:clean
+RUN npm run build
+
 # production environment
 FROM ubuntu:18.04
 RUN apt-get update && \
@@ -14,9 +23,16 @@ RUN a2dissite 000-default.conf
 RUN a2dissite default-ssl.conf
 RUN a2ensite default-apache.conf
 
-COPY ./build /var/www/html
+COPY --from=builder /usr/src/app/build /var/www/html
 
 EXPOSE 80
-HEALTHCHECK --interval=5s --timeout=3s --retries=3 CMD curl -f http://localhost || exit 1
 ENTRYPOINT ["apache2ctl"]
 CMD ["-DFOREGROUND"]
+
+# docker build -t comet.app.orbitsystems.gr/matzore-site:1.0.7 .
+# docker run --rm -it -p 3333:80 comet.app.orbitsystems.gr/matzore-site:1.0.7
+# docker push comet.app.orbitsystems.gr/matzore-site:1.0.7
+
+# docker build -t panosstavrianos/matzore-site:1.0.7 .
+# docker run --rm -it -p 3333:80 panosstavrianos/matzore-site:1.0.7
+# docker push panosstavrianos/matzore-site:1.0.7

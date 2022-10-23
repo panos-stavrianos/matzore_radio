@@ -138,7 +138,7 @@ function RadioPlayer() {
             useFastPolling: true,
             useHighPerformance: true,
             id: 'Radio',
-            url: ['http://rs.radio.uoc.gr:8000/matzore_64.ogg', 'http://rs.radio.uoc.gr:8000/matzore_64.mp3'],
+            url: ['https://rs.radio.uoc.gr:8001/matzore_64.ogg', 'https://rs.radio.uoc.gr:8001/matzore_64.mp3'],
             bufferTime: 9,
             onstop: function () {
                 set_icon(-1, set_music_card_playing)
