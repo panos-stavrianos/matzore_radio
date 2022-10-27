@@ -67,7 +67,7 @@ function start_autobahn() {
     }
 
     const connection = new autobahn.Connection({
-        url: window.location.protocol === "http:" ? 'ws://83.212.124.250:8081/ws' : 'wss://83.212.124.250:8081/ws',
+        url: `wss://snf-68642.vm.okeanos.grnet.gr:8081/ws`,
         realm: 'metadata-realm',
         authid: "anonymous"
     });
